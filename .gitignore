@@ -1,0 +1,9 @@
+__pycache__/
+checkpoint.pth
+checkpoints/
+results/
+test_results/
+train_results/
+vali_results/
+dataset/
+*.svg
