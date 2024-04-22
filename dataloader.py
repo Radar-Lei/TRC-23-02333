@@ -1,22 +1,25 @@
-from torch.utils.data import Dataset, DataLoader
+import torch.distributed
+from torch.utils.data import Dataset, DataLoader, distributed
 from sklearn.preprocessing import StandardScaler
 import pandas as pd
 import os
 from utils import time_features
 import numpy as np
 import datetime
+import torch
+import math
 
 class Dataset_Custom(Dataset):
     def __init__(self, 
-                 root_path, # the path of the dataset
-                 flag='train', 
-                 seq_len=None,
-                 standardaization=True, # whether to standardize the data
-                 timeenc=0, # type of time encoding
-                 freq='t', 
-                 data_shrink = 1, # time interval to segment the time series, larger number decreases sample size
-                 fixed_seed= 20
-                 ):
+                root_path, # the path of the dataset
+                flag='train', 
+                seq_len=None,
+                standardaization=True, # whether to standardize the data
+                timeenc=0, # type of time encoding
+                freq='t', 
+                data_shrink = 1, # time interval to segment the time series, larger number decreases sample size
+                fixed_seed= 20
+                ):
         # info
         if seq_len == None:
             self.seq_len = 24 * 4 * 4
@@ -214,7 +217,8 @@ class Dataset_Custom(Dataset):
 
     def __getitem__(self, index):
         if self.set_type == 0: # when not pred
-            s_begin = index * self.seq_len
+            s_begin = self.valid_indices[index]
+            # s_begin = index * self.seq_len
             s_end = s_begin + self.seq_len
 
         elif (self.set_type == 1) or (self.set_type == 2):
@@ -228,7 +232,8 @@ class Dataset_Custom(Dataset):
 
     def __len__(self):
         if self.set_type == 0:
-            return int(len(self.data_x) / self.seq_len)
+            return len(self.valid_indices)
+            # return int(len(self.data_x) / self.seq_len)
         else: # self.set_type == 3: # pred
             return int(len(self.data_x) / self.seq_len)
 
@@ -250,21 +255,16 @@ class Dataset_Custom(Dataset):
         c = 2 * np.arctan2(np.sqrt(a), np.sqrt(1-a))
         d = R * c
         return d
-    
+
+def get_ddp_generator(seed=3407):
+    local_rank = int(os.environ['LOCAL_RANK'])
+    g = torch.Generator()
+    g.manual_seed(seed + local_rank)
+    return g
 
 def data_provider(args, flag):
     Data = Dataset_Custom
     timeenc = 0 if args.embed != 'timeF' else 1
-
-    if (flag == 'pred'):
-        shuffle_flag = False
-        drop_last = True
-        
-        batch_size = 1  # bsz=1 for evaluation
-    else:
-        shuffle_flag = True
-        drop_last = True
-        batch_size = args.batch_size  # bsz for train and valid
 
     root_path = args.root_path
 
@@ -278,16 +278,34 @@ def data_provider(args, flag):
         fixed_seed=args.fixed_seed,
     )
     
-    print(flag, len(data_set))
-    
-    if flag == 'val' or flag == 'test':
+    if flag == 'train':
         shuffle_flag = False
-        if len(data_set) < batch_size:
-            batch_size = len(data_set)
+        drop_last = True
+        batch_size = args.batch_size
+    else:
+        shuffle_flag = False # always False since using DistributedSampler, which shuffles the data among workers
+        drop_last = True
+        batch_size = args.batch_size # batch_size should be exactly the number of samples in a day
+    
+    local_rank = int(os.environ['LOCAL_RANK'])
+    print("Local rank:{0}, dataset:{1}, sample_size:{2}".format(local_rank, flag, len(data_set)))
+    
+    if flag == 'train':
+        data_loader = DataLoader(
+            data_set,
+            batch_size=batch_size,
+            shuffle=shuffle_flag,
+            drop_last=drop_last,
+            num_workers=1,
+            pin_memory=True,
+            sampler=distributed.DistributedSampler(data_set),
+            generator=get_ddp_generator())
+    else:
+        data_loader = DataLoader(
+            data_set,
+            batch_size=batch_size,
+            shuffle=shuffle_flag,
+            drop_last=drop_last,
+            )
 
-    data_loader = DataLoader(
-        data_set,
-        batch_size=batch_size,
-        shuffle=shuffle_flag,
-        drop_last=drop_last)
     return data_set, data_loader

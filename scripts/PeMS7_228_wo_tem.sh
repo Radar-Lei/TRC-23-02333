@@ -5,7 +5,7 @@ export NUMEXPR_MAX_THREADS=128
 export OMP_NUM_THREADS=1
 torchrun --standalone --nproc_per_node=2 main.py\
     --is_training 0 \
-    --model CDSTE\
+    --model CDSTE_wo_tem\
     \
     --root_path ./dataset/PeMS7_228 \
     --freq 5min \
@@ -39,7 +39,7 @@ torchrun --standalone --nproc_per_node=2 main.py\
     --batch_size 16\
     --es_patience 100\
     --lr_patience 30\
-    --learning_rate 0.002\
+    --learning_rate 0.003\
     --train_epochs 600\
     \
     --gpu 0 \
@@ -49,7 +49,7 @@ torchrun --standalone --nproc_per_node=2 main.py\
 # missing ratio 0.6
 torchrun --standalone --nproc_per_node=2 main.py\
     --is_training 0 \
-    --model CDSTE\
+    --model CDSTE_wo_tem\
     \
     --root_path ./dataset/PeMS7_228 \
     --freq 5min \
@@ -83,7 +83,7 @@ torchrun --standalone --nproc_per_node=2 main.py\
     --batch_size 16\
     --es_patience 100\
     --lr_patience 30\
-    --learning_rate 0.002\
+    --learning_rate 0.003\
     --train_epochs 600\
     \
     --gpu 0 \
@@ -94,7 +94,7 @@ torchrun --standalone --nproc_per_node=2 main.py\
 # missing ratio 0.75
 torchrun --standalone --nproc_per_node=2 main.py\
     --is_training 0 \
-    --model CDSTE\
+    --model CDSTE_wo_tem\
     \
     --root_path ./dataset/PeMS7_228 \
     --freq 5min \
@@ -128,7 +128,7 @@ torchrun --standalone --nproc_per_node=2 main.py\
     --batch_size 16\
     --es_patience 100\
     --lr_patience 30\
-    --learning_rate 0.002\
+    --learning_rate 0.003\
     --train_epochs 600\
     \
     --gpu 0 \

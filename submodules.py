@@ -147,8 +147,7 @@ class CondObsEmbedding(nn.Module):
         super(CondObsEmbedding, self).__init__()
 
         self.cond_value_embedding = TokenEmbedding(c_in=c_in, d_model=d_model)
-    
-        # self.mask_embedding = TokenEmbedding(c_in=c_in, d_model=d_model)
+
         self.position_embedding = PositionalEmbedding(d_model=d_model)
         self.temporal_embedding = TemporalEmbedding(d_model=d_model, embed_type=embed_type,
                                                     freq=freq) if embed_type != 'timeF' else TimeFeatureEmbedding(
@@ -162,6 +161,7 @@ class CondObsEmbedding(nn.Module):
     def forward(self, cond_obs, x_mark, diff_step):
         # (B,) -> (B, d_model) -> (B, d_model)
         diff_step_embedding = self.diffusion_embedding(diff_step)
+
         
         pos_embedding = self.position_embedding(cond_obs)
 
@@ -176,11 +176,11 @@ class CondObsEmbedding(nn.Module):
             x = self.cond_value_embedding(cond_obs) + tem_embedding + pos_embedding
         
         return self.dropout(x), tem_embedding, pos_embedding, diff_step_embedding
+
 class SpaObsEmbedding(nn.Module):
     def __init__(self, c_in, d_model, embed_type='timeF', freq='h', dropout=0.1, diff_steps=100, diff_emb_dim=32):
         super(SpaObsEmbedding, self).__init__()
     
-        # self.mask_embedding = TokenEmbedding(c_in=c_in, d_model=d_model)
         self.position_embedding = PositionalEmbedding(d_model=d_model)
         self.temporal_embedding = TemporalEmbedding(d_model=d_model, embed_type=embed_type,
                                                     freq=freq) if embed_type != 'timeF' else TimeFeatureEmbedding(
@@ -413,7 +413,7 @@ class ResidualBlock(nn.Module):
         residual = residual.reshape(base_shape)
         skip = skip.reshape(base_shape)
         return (x + residual) / math.sqrt(2.0), skip
-
+    
 class TemResidualBlock(nn.Module):
     def __init__(self, side_dim, channels, fusion_d, diffusion_embedding_dim, nheads, configs):
         super().__init__()
@@ -484,8 +484,6 @@ class SpaResidualBlock(nn.Module):
         self.output_projection = Conv1d_with_init(channels, 2 * channels, 1)
 
         self.spa_layer = get_torch_trans(heads=nheads, layers=1, channels=channels)
-
-        self.layer_norm = nn.LayerNorm(configs.d_model)
 
     def forward_spatial(self, y, base_shape):
         B, channel, K, L = base_shape

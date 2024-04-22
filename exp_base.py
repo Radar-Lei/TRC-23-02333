@@ -1,6 +1,6 @@
 import os
 import torch
-from models import CDSTE, CDSTE_wo_tem, CDSTE_wo_spa, ST_Transformer
+from models import CDSTE, CDSTE_wo_tem, CDSTE_wo_spa
 
 class Exp_Basic(object):
     def __init__(self, args):
@@ -9,10 +9,8 @@ class Exp_Basic(object):
             'CDSTE': CDSTE,
             'CDSTE_wo_tem': CDSTE_wo_tem,
             'CDSTE_wo_spa': CDSTE_wo_spa,
-            'STTN': ST_Transformer
         }
-        self.device = self._acquire_device()
-        self.model = self._build_model().to(self.device)
+        self.model = self._build_model()
 
     def _build_model(self):
         raise NotImplementedError

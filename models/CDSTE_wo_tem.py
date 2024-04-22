@@ -26,7 +26,7 @@ class Model(nn.Module):
         """
         self.alpha_hat = np.cumprod(self.alpha) # self.alpha is still of shape (T,)
         # reshape for computing, self.alpha_torch is of shape (T,) -> (T,1,1)
-        self.alpha_torch = torch.tensor(self.alpha_hat).float().to(configs.gpu).unsqueeze(1).unsqueeze(1)
+        self.alpha_torch = torch.tensor(self.alpha_hat).float().cuda().unsqueeze(1).unsqueeze(1)
 
         self.cond_embedding = SpaObsEmbedding(configs.locations,
                                             configs.d_model,
@@ -69,7 +69,7 @@ class Model(nn.Module):
         """
         B,_,_ = x_enc.shape
 
-        t = torch.randint(0, self.configs.diff_steps, [B]).to(self.configs.gpu)
+        t = torch.randint(0, self.configs.diff_steps, [B]).cuda()
 
         # alpha_torch is of shape (T,1,1), t is of torch.Size([B])
         current_alpha = self.alpha_torch[t]  # (B,1,1)
@@ -99,7 +99,7 @@ class Model(nn.Module):
         # embedding and concat side info for transformer module
         ext_mask = mask.permute(0,2,1).unsqueeze(1) # (B,1,K,L)
         spa_pos_emb = self.spa_pos_emb(
-            torch.arange(K).to(self.configs.gpu)
+            torch.arange(K).cuda()
             ) # (K,spa_pos_emb_dim)
         # # convert timestamp_emb from (B, L, d_model) to (B, L, K, d_model)
         # timestamp_emb = timestamp_emb.unsqueeze(2).expand(-1, -1, K, -1)
@@ -142,7 +142,7 @@ class Model(nn.Module):
 
     def evaluate(self, x_enc, x_mark_enc, mask=None, target_mask=None, weight_A=None):
         B,L,K = x_enc.shape
-        imputed_samples = torch.zeros(B, self.configs.diff_samples, L, K).to(self.configs.gpu)
+        imputed_samples = torch.zeros(B, self.configs.diff_samples, L, K).cuda()
 
         for i in range(self.configs.diff_samples):
             # diffusion starts from a pure Gaussian noise
@@ -157,7 +157,7 @@ class Model(nn.Module):
                 # emb_tem is of shape (B, L, d_model), timestamps embedding
                 # emb_tem_pos is of shape (1, L, d_model), timestamps position embedding
                 # emb_diff_step is of shape (B, diff_emb_dim)
-                emb_cond_obs, emb_tem, emb_tem_pos, emb_diff_step  = self.cond_embedding(cond_obs, x_mark_enc, torch.tensor([s]).to(self.configs.gpu))
+                emb_cond_obs, emb_tem, emb_tem_pos, emb_diff_step  = self.cond_embedding(cond_obs, x_mark_enc, torch.tensor([s]).cuda())
 
                 # the total input of transformer module is of shape (B,2,K,L)
                 trans_total_inp = torch.cat([cond_obs.permute(0,2,1).unsqueeze(1), noisy_target.permute(0,2,1).unsqueeze(1)], dim=1)
@@ -172,7 +172,7 @@ class Model(nn.Module):
                 # embedding and concat side info for transformer module
                 ext_mask = mask.permute(0,2,1).unsqueeze(1) # (B,1,K,L)
                 spa_pos_emb = self.spa_pos_emb(
-                    torch.arange(K).to(self.configs.gpu)
+                    torch.arange(K).cuda()
                     ) # (K,spa_pos_emb_dim)
                 # # convert timestamp_emb from (B, L, d_model) to (B, L, K, d_model)
                 # timestamp_emb = timestamp_emb.unsqueeze(2).expand(-1, -1, K, -1)
@@ -232,7 +232,7 @@ class Model(nn.Module):
 
     def evaluate_acc(self, x_enc, x_mark_enc, mask=None, target_mask=None, weight_A=None):
         B,L,K = x_enc.shape
-        imputed_samples = torch.zeros(B, self.configs.diff_samples, L, K).to(self.configs.gpu)
+        imputed_samples = torch.zeros(B, self.configs.diff_samples, L, K).cuda()
 
         for i in range(self.configs.diff_samples):
             # diffusion starts from a pure Gaussian noise
@@ -254,7 +254,7 @@ class Model(nn.Module):
                 # emb_tem is of shape (B, L, d_model), timestamps embedding
                 # emb_tem_pos is of shape (1, L, d_model), timestamps position embedding
                 # emb_diff_step is of shape (B, diff_emb_dim)
-                emb_tem, emb_tem_pos, emb_diff_step  = self.cond_embedding(cond_obs, x_mark_enc, torch.tensor([s]).to(self.configs.gpu))
+                emb_tem, emb_tem_pos, emb_diff_step  = self.cond_embedding(cond_obs, x_mark_enc, torch.tensor([s]).cuda())
 
                 # the total input of transformer module is of shape (B,2,K,L)
                 trans_total_inp = torch.cat([cond_obs.permute(0,2,1).unsqueeze(1), noisy_target.permute(0,2,1).unsqueeze(1)], dim=1)
@@ -269,7 +269,7 @@ class Model(nn.Module):
                 # embedding and concat side info for transformer module
                 ext_mask = mask.permute(0,2,1).unsqueeze(1) # (B,1,K,L)
                 spa_pos_emb = self.spa_pos_emb(
-                    torch.arange(K).to(self.configs.gpu)
+                    torch.arange(K).cuda()
                     ) # (K,spa_pos_emb_dim)
                 # # convert timestamp_emb from (B, L, d_model) to (B, L, K, d_model)
                 # timestamp_emb = timestamp_emb.unsqueeze(2).expand(-1, -1, K, -1)

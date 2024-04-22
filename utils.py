@@ -68,7 +68,7 @@ def visual(true, preds=None, name='./pic/test.pdf'):
     plt.close()
 
 class EarlyStopping:
-    def __init__(self, patience=7, verbose=False, model='DiffusionBase', delta=0):
+    def __init__(self, patience=7, verbose=False, delta=0):
         self.patience = patience
         self.verbose = verbose
         self.counter = 0
@@ -76,13 +76,12 @@ class EarlyStopping:
         self.early_stop = False
         self.val_loss_min = np.Inf
         self.delta = delta
-        self.model = model
 
-    def __call__(self, val_loss, model, path):
+    def __call__(self, val_loss, model, model_optim, scheduler, path):
         score = -val_loss
         if self.best_score is None:
             self.best_score = score
-            self.save_checkpoint(val_loss, model, path)
+            self.save_checkpoint(val_loss, model, model_optim, scheduler, path)
         elif score < self.best_score + self.delta:
             self.counter += 1
             print(f'EarlyStopping counter: {self.counter} out of {self.patience}')
@@ -90,18 +89,23 @@ class EarlyStopping:
                 self.early_stop = True
         else:
             self.best_score = score
-            self.save_checkpoint(val_loss, model, path)
+            self.save_checkpoint(val_loss, model, model_optim, scheduler, path)
             self.counter = 0
 
-    def save_checkpoint(self, val_loss, model, path):
+    def save_checkpoint(self, val_loss, model, model_optim, scheduler, path):
         if self.verbose:
-            if self.model in ['DiffusionBase', 'CSDI', 'TimeGrad', 'DeepAR']:
-                # for probabilistic models, we use CRPS as the metric
-                print(f'Validation CRPS decreased ({self.val_loss_min:.6f} --> {val_loss:.6f}).  Saving model ...')
-            else:
-                print(f'Validation RMSE decreased ({self.val_loss_min:.6f} --> {val_loss:.6f}).  Saving model ...')
+            print(f'Validation CRPS decreased ({self.val_loss_min:.6f} --> {val_loss:.6f}).  Saving model ...')
             self.val_loss_min = val_loss
-        torch.save(model.state_dict(), path + '/' + 'checkpoint.pth')
+        torch.save({
+                    """
+                    Save model use model.module.state_dict() instead of model.state_dict()。
+                    Without module, the saved model would save the structure of DDP, module
+                    would save the model only
+                    """
+                    'model_state_dict': model.module.state_dict(),
+                    'optimizer_state_dict': model_optim.state_dict(),
+                    'scheduler_state_dict': scheduler.state_dict(),
+                    }, path + '/' + 'checkpoint.pth')
 
 
 class TimeFeature:
@@ -286,7 +290,7 @@ def plot_subplots(
             plt.setp(axes[-1, col], xlabel='Time')
 
     plt.subplots_adjust(top=0.95, bottom=0.05, left=0.05, right=0.95, hspace=0.3, wspace=0.2)
-    plt.savefig(f"{path}epoch({epoch}).png", dpi=300)
+    plt.savefig(f"{path}epoch({epoch}).svg", dpi=300)
     plt.close()
 
 
@@ -302,7 +306,8 @@ def daily_plot_subplots(
         all_evalpoint_np, 
         all_given_np, 
         path, 
-        epoch
+        epoch,
+        dataset_name
         ):
     """
     plot daily subplots by concatenating subseqs into daily seqsk
@@ -342,12 +347,12 @@ def daily_plot_subplots(
         # axes[row][col].lengend()
 
         if col == 0:
-            plt.setp(axes[row, 0], ylabel='Traffic Speed (mph))')
+            if dataset_name in ['PeMS7_228', 'PeMS7_1026','Seattle']:
+                plt.setp(axes[row, 0], ylabel='Traffic Speed (mph))')
         if row == nrows-1:
             plt.setp(axes[-1, col], xlabel='Time')
-            
     handles, labels = axes[0][0].get_legend_handles_labels()
     fig.legend(handles, labels, loc='lower center', ncol=len(handles), bbox_to_anchor=(0.5, 0))
     plt.subplots_adjust(top=0.95, bottom=0.05, left=0.05, right=0.95, hspace=0.3, wspace=0.2)
-    plt.savefig(f"{path}epoch({epoch}).png", dpi=300)
+    plt.savefig(f"{path}epoch({epoch}).svg", dpi=300)
     plt.close()
