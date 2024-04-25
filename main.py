@@ -1,6 +1,6 @@
 import argparse
 import torch
-from exp_imputation import Exp_Imputation
+from imputation import Exp_Imputation
 import datetime
 import json
 import os
@@ -95,8 +95,6 @@ if args.use_gpu and args.use_multi_gpu:
 
 if args.task_name == 'imputation':
     Exp = Exp_Imputation
-elif args.task_name == 'imputation':
-    Exp = Exp_Imputation
 
 current_time = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 if args.is_training == 0:
@@ -130,7 +128,7 @@ if args.is_training == 0:
 elif args.is_training == 2:
     # pred
     ii = 0
-    setting = '20230713_033341_long_term_forecast_flow_dm256_df256_el2_topk5_nk6_fq_h_Exp_3'
+    setting = ''
 
     exp = Exp(args)  # set experiments
     print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))

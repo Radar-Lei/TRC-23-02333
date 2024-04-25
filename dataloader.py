@@ -125,8 +125,6 @@ class Dataset_Custom(Dataset):
         # structurally missing can use all dates for training
         np.random.seed(self.fixed_seed)
         
-        # train_dates = [dt.date() for dt in date_range.to_pydatetime()]
-        
         # Create a list of all available dates
         available_dates = date_range.tolist()
 
@@ -214,7 +212,7 @@ class Dataset_Custom(Dataset):
 
     def __getitem__(self, index):
         if self.set_type == 0: # when not pred
-            s_begin = index * self.seq_len
+            s_begin = self.valid_indices[index]
             s_end = s_begin + self.seq_len
 
         elif (self.set_type == 1) or (self.set_type == 2):
@@ -228,7 +226,7 @@ class Dataset_Custom(Dataset):
 
     def __len__(self):
         if self.set_type == 0:
-            return int(len(self.data_x) / self.seq_len)
+            return len(self.valid_indices)
         else: # self.set_type == 3: # pred
             return int(len(self.data_x) / self.seq_len)
 

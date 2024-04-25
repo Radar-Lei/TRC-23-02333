@@ -1,6 +1,8 @@
 # TRC-23-02333
 
-This repository contains the prototype codes for our submission "TRC-23-023333" to the journal *Transportation Research Part C*. Currently, we present only the core components of our implementation, including the estimation processes using our proposed model, two baseline models, and an ablation study. Once our paper is accepted, we will upload the complete implementations including experiments comparing all baselines. You can test the currently available experiments using the following commands on a Linux-based system:
+This repository contains the prototype codes for our submission "TRC-23-023333" to the journal *Transportation Research Part C*. Currently, we present only the core components of our implementation, including the estimation processes using our proposed model, two baseline models, and an ablation study. 
+
+Once our paper is accepted, we will upload the complete and cleaned implementations including experiments comparing all baselines. You can test the currently available experiments using the following commands on a Linux-based system (Pytorch version 2.0.1, cuda version 11.8):
 
 ```bash
 bash ./scripts/PeMS7_228.sh > $(date +'%y%m%d-%H%M%S')_PeMS7_228_log.txt

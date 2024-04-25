@@ -80,13 +80,8 @@ class Model(nn.Module):
         mask = mask * target_mask
         noisy_target = (1-mask) * noisy_data
         
-        # emb_cond_obs is of shape (B, L, d_model)
-        # emb_tem is of shape (B, L, d_model), timestamps embedding
-        # emb_tem_pos is of shape (1, L, d_model), timestamps position embedding
-        # emb_diff_step is of shape (B, diff_emb_dim)
         emb_cond_obs, emb_tem, emb_tem_pos, emb_diff_step  = self.cond_embedding(cond_obs, x_mark_enc, t)
         
-        # the total input of transformer module is of shape (B,2,K,L)
         trans_total_inp = torch.cat([cond_obs.permute(0,2,1).unsqueeze(1), noisy_target.permute(0,2,1).unsqueeze(1)], dim=1)
         
         _, inputdim, K, L = trans_total_inp.shape
@@ -96,15 +91,11 @@ class Model(nn.Module):
         trans_total_inp = F.relu(trans_total_inp)
         trans_total_inp = trans_total_inp.reshape(B, self.configs.channels, K, L)
         
-        # embedding and concat side info for transformer module
         ext_mask = mask.permute(0,2,1).unsqueeze(1) # (B,1,K,L)
         spa_pos_emb = self.spa_pos_emb(
             torch.arange(K).to(self.configs.gpu)
             ) # (K,spa_pos_emb_dim)
-        # # convert timestamp_emb from (B, L, d_model) to (B, L, K, d_model)
-        # timestamp_emb = timestamp_emb.unsqueeze(2).expand(-1, -1, K, -1)
-        
-        # convert feature_emb from (K,spa_pos_emb_dim) to (B, L, K, spa_pos_emb_dim) -> (B, spa_pos_emb_dim, K, L)
+
         spa_pos_emb = spa_pos_emb.unsqueeze(0).unsqueeze(0).expand(B, L, -1, -1).permute(0,3,2,1)
         
         # convert emb_tem from (B, L, d_model) to (B, L, K, d_model) -> (B, d_model, K, L)
@@ -154,10 +145,6 @@ class Model(nn.Module):
                 cond_obs = mask * x_enc
                 noisy_target = target_mask * sample
 
-                # emb_cond_obs is of shape (B, L, d_model)
-                # emb_tem is of shape (B, L, d_model), timestamps embedding
-                # emb_tem_pos is of shape (1, L, d_model), timestamps position embedding
-                # emb_diff_step is of shape (B, diff_emb_dim)
                 emb_cond_obs, emb_tem, emb_tem_pos, emb_diff_step  = self.cond_embedding(cond_obs, x_mark_enc, torch.tensor([s]).to(self.configs.gpu))
 
                 # the total input of transformer module is of shape (B,2,K,L)
@@ -175,10 +162,7 @@ class Model(nn.Module):
                 spa_pos_emb = self.spa_pos_emb(
                     torch.arange(K).to(self.configs.gpu)
                     ) # (K,spa_pos_emb_dim)
-                # # convert timestamp_emb from (B, L, d_model) to (B, L, K, d_model)
-                # timestamp_emb = timestamp_emb.unsqueeze(2).expand(-1, -1, K, -1)
-                
-                # convert feature_emb from (K,spa_pos_emb_dim) to (B, L, K, spa_pos_emb_dim) -> (B, spa_pos_emb_dim, K, L)
+
                 spa_pos_emb = spa_pos_emb.unsqueeze(0).unsqueeze(0).expand(B, L, -1, -1).permute(0,3,2,1)
                 
                 # convert emb_tem from (B, L, d_model) to (B, L, K, d_model) -> (B, d_model, K, L)
@@ -251,10 +235,6 @@ class Model(nn.Module):
                 cond_obs = mask * x_enc
                 noisy_target = target_mask * sample
 
-                # emb_cond_obs is of shape (B, L, d_model)
-                # emb_tem is of shape (B, L, d_model), timestamps embedding
-                # emb_tem_pos is of shape (1, L, d_model), timestamps position embedding
-                # emb_diff_step is of shape (B, diff_emb_dim)
                 emb_cond_obs, emb_tem, emb_tem_pos, emb_diff_step  = self.cond_embedding(cond_obs, x_mark_enc, torch.tensor([s]).to(self.configs.gpu))
 
                 # the total input of transformer module is of shape (B,2,K,L)
@@ -272,10 +252,7 @@ class Model(nn.Module):
                 spa_pos_emb = self.spa_pos_emb(
                     torch.arange(K).to(self.configs.gpu)
                     ) # (K,spa_pos_emb_dim)
-                # # convert timestamp_emb from (B, L, d_model) to (B, L, K, d_model)
-                # timestamp_emb = timestamp_emb.unsqueeze(2).expand(-1, -1, K, -1)
                 
-                # convert feature_emb from (K,spa_pos_emb_dim) to (B, L, K, spa_pos_emb_dim) -> (B, spa_pos_emb_dim, K, L)
                 spa_pos_emb = spa_pos_emb.unsqueeze(0).unsqueeze(0).expand(B, L, -1, -1).permute(0,3,2,1)
 
                 # convert emb_tem from (B, L, d_model) to (B, L, K, d_model) -> (B, d_model, K, L)

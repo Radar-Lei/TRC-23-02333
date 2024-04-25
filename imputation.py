@@ -1,5 +1,5 @@
 import torch
-from exp_base import Exp_Basic
+from base import Exp_Basic
 import os
 import torch.nn as nn
 from dataloader import data_provider
@@ -44,15 +44,6 @@ class Exp_Imputation(Exp_Basic):
         return criterion
     
     def _sm_mask_generator(self, actual_mask, reserve_indices, missing_rate):
-        """
-        generate the missing mask for SM missing pattern,
-        should follow the same strategy as dataloader to 
-        select cols to be structurally missing, but without
-        fixed random seed for training set diversity.
-
-        return: (B,L,K) as the cond_mask in model training
-        """
-        # actual_mask: (B,L,K)
         copy_mask = actual_mask.clone()
         _, _, dim_K = copy_mask.shape
         available_features = [i for i in range(dim_K) if i not in reserve_indices]
@@ -268,8 +259,6 @@ class Exp_Imputation(Exp_Basic):
                 target_mask = actual_mask - mask
                 weight_A = weight_A.float().to(self.device)
 
-                # outputs is of shape (B, n_samples, L_hist, K)
-                # whether to use the sampling shrink interval to accelerate the sampling process
                 if self.args.sampling_shrink_interval > 1:
                     outputs = self.model.evaluate_acc(batch_x, batch_x_mark, mask, target_mask, weight_A)
                 else:
@@ -283,13 +272,11 @@ class Exp_Imputation(Exp_Basic):
                 outputs = vali_data.inverse_transform(outputs)
                 outputs = outputs.reshape(B, n_samples, L, K)
 
-                # current target of shape (B, L_hist, K)
                 c_target = batch_x.detach().cpu().numpy()
                 c_target = c_target.reshape(B * L, K)
                 c_target = vali_data.inverse_transform(c_target)
                 c_target = c_target.reshape(B, L, K)
 
-                # (B, n_samples, L_hist, K) -> (B, L_hist, K)
                 samples_median = np.median(outputs, axis=1)
                 samples_mean = np.mean(outputs, axis=1)
 
