@@ -290,7 +290,7 @@ def plot_subplots(
             plt.setp(axes[-1, col], xlabel='Time')
 
     plt.subplots_adjust(top=0.95, bottom=0.05, left=0.05, right=0.95, hspace=0.3, wspace=0.2)
-    plt.savefig(f"{path}epoch({epoch}).svg", dpi=300)
+    plt.savefig(f"{path}epoch({epoch}).png", dpi=300)
     plt.close()
 
 
@@ -354,5 +354,5 @@ def daily_plot_subplots(
     handles, labels = axes[0][0].get_legend_handles_labels()
     fig.legend(handles, labels, loc='lower center', ncol=len(handles), bbox_to_anchor=(0.5, 0))
     plt.subplots_adjust(top=0.95, bottom=0.05, left=0.05, right=0.95, hspace=0.3, wspace=0.2)
-    plt.savefig(f"{path}epoch({epoch}).svg", dpi=300)
+    plt.savefig(f"{path}epoch({epoch}).png", dpi=300)
     plt.close()

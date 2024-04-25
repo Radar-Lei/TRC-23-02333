@@ -1,0 +1,2799 @@
+Number of parameters in current model: 246433
+>>>>>>>start training : 20240422_120404_PeMS7_228_CDSTE_mr0.3>>>>>>>>>>>>>>>>>>>>>>>>>>
+{
+    "task_name": "imputation",
+    "is_training": 0,
+    "model": "CDSTE",
+    "trained_model": "",
+    "root_path": "./dataset/PeMS7_228",
+    "checkpoints": "./checkpoints/",
+    "freq": "5min",
+    "data_shrink": 3,
+    "seq_len": 18,
+    "missing_pattern": "rcm",
+    "missing_rate": 0.3,
+    "fixed_seed": 42,
+    "diff_schedule": "quad",
+    "diff_steps": 100,
+    "diff_samples": 50,
+    "beta_start": 0.0001,
+    "beta_end": 0.2,
+    "sampling_shrink_interval": 4,
+    "locations": 228,
+    "d_model": 32,
+    "d_ff": 8,
+    "top_k": 2,
+    "num_kernels": 2,
+    "embed": "learned",
+    "dropout": 0.1,
+    "channels": 64,
+    "layers": 2,
+    "nheads": 4,
+    "diff_emb_dim": 32,
+    "spa_pos_emb_dim": 32,
+    "des": "Exp",
+    "itr": 1,
+    "batch_size": 16,
+    "es_patience": 100,
+    "lr_patience": 50,
+    "learning_rate": 0.002,
+    "train_epochs": 800,
+    "use_gpu": true,
+    "gpu": 0,
+    "use_multi_gpu": true,
+    "devices": "0,1",
+    "epoch_to_vis": 5,
+    "device_ids": [
+        0,
+        1
+    ]
+}
+Local rank:1, dataset:train, sample_size:3614
+Local rank:0, dataset:train, sample_size:3614
+Local rank:1, dataset:val, sample_size:32
+Local rank:0, dataset:test, sample_size:32
+Num of reserved locations for model eval: 68 out of 228 locations 
+with seed 42
+Reserved location ids: [215  66   9 200  15 197  25 193 154 126 212  19  96 177 221 137 146  30
+ 223 184 108 162 216 180 125  18 147 101 104  84 195  60 118  45  16 127
+ 159 119  82 144  93 168 143  73 113 112 150  55 165  69 167 109 124  79
+  86  95 211 117  38  24  67 185 196  10 120  29 153  68]
+Epoch: 1 training cost time: 10.12
+Epoch: 1, eval cost time: 56.79 | Train Loss: 0.33
+| Vali MAE (mean): 11.19 RMES (mean): 16.04 MAPE (mean): 0.23
+| Vali MAE (median): 7.52 RMES (median): 11.47 MAPE (median): 0.20 
+| CRPS (Vali): 0.10
+| Test MAE (mean): 9.79 RMES (mean): 14.27 MAPE (mean): 0.23
+| Test MAE (median): 7.52 RMES (median): 11.90 MAPE (median): 0.23 
+| CRPS (Test): 0.10
+Validation CRPS decreased (inf --> 0.102724).  Saving model ...
+Epoch: 2 training cost time: 9.12
+Epoch: 2, eval cost time: 55.39 | Train Loss: 0.23
+| Vali MAE (mean): 8.73 RMES (mean): 13.31 MAPE (mean): 0.24
+| Vali MAE (median): 9.43 RMES (median): 14.69 MAPE (median): 0.28 
+| CRPS (Vali): 0.13
+| Test MAE (mean): 8.35 RMES (mean): 13.36 MAPE (mean): 0.26
+| Test MAE (median): 9.09 RMES (median): 14.94 MAPE (median): 0.31 
+| CRPS (Test): 0.12
+EarlyStopping counter: 1 out of 100
+Epoch: 3 training cost time: 9.11
+Epoch: 3, eval cost time: 57.30 | Train Loss: 0.20
+| Vali MAE (mean): 7.10 RMES (mean): 11.11 MAPE (mean): 0.18
+| Vali MAE (median): 6.86 RMES (median): 11.25 MAPE (median): 0.20 
+| CRPS (Vali): 0.09
+| Test MAE (mean): 7.43 RMES (mean): 11.29 MAPE (mean): 0.20
+| Test MAE (median): 7.15 RMES (median): 11.45 MAPE (median): 0.22 
+| CRPS (Test): 0.09
+Validation CRPS decreased (0.102724 --> 0.088884).  Saving model ...
+Epoch: 4 training cost time: 9.73
+Epoch: 4, eval cost time: 56.75 | Train Loss: 0.19
+| Vali MAE (mean): 11.61 RMES (mean): 17.33 MAPE (mean): 0.24
+| Vali MAE (median): 9.27 RMES (median): 14.50 MAPE (median): 0.21 
+| CRPS (Vali): 0.12
+| Test MAE (mean): 10.20 RMES (mean): 15.21 MAPE (mean): 0.22
+| Test MAE (median): 8.39 RMES (median): 13.03 MAPE (median): 0.20 
+| CRPS (Test): 0.11
+EarlyStopping counter: 1 out of 100
+Epoch: 5 training cost time: 10.01
+Epoch: 5, eval cost time: 56.23 | Train Loss: 0.19
+| Vali MAE (mean): 7.13 RMES (mean): 10.68 MAPE (mean): 0.18
+| Vali MAE (median): 6.71 RMES (median): 10.81 MAPE (median): 0.18 
+| CRPS (Vali): 0.09
+| Test MAE (mean): 7.31 RMES (mean): 10.91 MAPE (mean): 0.20
+| Test MAE (median): 6.96 RMES (median): 11.05 MAPE (median): 0.20 
+| CRPS (Test): 0.09
+EarlyStopping counter: 2 out of 100
+Epoch: 6 training cost time: 9.21
+Epoch: 6, Steps: 112 | Train Loss: 0.1861
+Epoch: 7 training cost time: 8.88
+Epoch: 7, Steps: 112 | Train Loss: 0.1863
+Epoch: 8 training cost time: 8.91
+Epoch: 8, Steps: 112 | Train Loss: 0.1784
+Epoch: 9 training cost time: 9.04
+Epoch: 9, Steps: 112 | Train Loss: 0.1793
+Epoch: 10 training cost time: 9.25
+Epoch: 10, eval cost time: 55.86 | Train Loss: 0.18
+| Vali MAE (mean): 6.65 RMES (mean): 10.18 MAPE (mean): 0.18
+| Vali MAE (median): 6.53 RMES (median): 10.48 MAPE (median): 0.18 
+| CRPS (Vali): 0.09
+| Test MAE (mean): 6.73 RMES (mean): 10.29 MAPE (mean): 0.19
+| Test MAE (median): 6.59 RMES (median): 10.50 MAPE (median): 0.19 
+| CRPS (Test): 0.09
+EarlyStopping counter: 3 out of 100
+Epoch: 11 training cost time: 9.01
+Epoch: 11, Steps: 112 | Train Loss: 0.1819
+Epoch: 12 training cost time: 9.29
+Epoch: 12, Steps: 112 | Train Loss: 0.1649
+Epoch: 13 training cost time: 8.96
+Epoch: 13, Steps: 112 | Train Loss: 0.1780
+Epoch: 14 training cost time: 10.00
+Epoch: 14, Steps: 112 | Train Loss: 0.1774
+Epoch: 15 training cost time: 9.73
+Epoch: 15, eval cost time: 57.27 | Train Loss: 0.16
+| Vali MAE (mean): 6.44 RMES (mean): 9.84 MAPE (mean): 0.16
+| Vali MAE (median): 6.26 RMES (median): 10.00 MAPE (median): 0.16 
+| CRPS (Vali): 0.09
+| Test MAE (mean): 6.72 RMES (mean): 10.19 MAPE (mean): 0.17
+| Test MAE (median): 6.55 RMES (median): 10.32 MAPE (median): 0.17 
+| CRPS (Test): 0.09
+Validation CRPS decreased (0.088884 --> 0.088034).  Saving model ...
+Epoch: 16 training cost time: 9.18
+Epoch: 16, Steps: 112 | Train Loss: 0.1636
+Epoch: 17 training cost time: 9.08
+Epoch: 17, Steps: 112 | Train Loss: 0.1636
+Epoch: 18 training cost time: 9.03
+Epoch: 18, Steps: 112 | Train Loss: 0.1684
+Epoch: 19 training cost time: 9.14
+Epoch: 19, Steps: 112 | Train Loss: 0.1613
+Epoch: 20 training cost time: 9.04
+Epoch: 20, eval cost time: 54.84 | Train Loss: 0.17
+| Vali MAE (mean): 5.88 RMES (mean): 9.32 MAPE (mean): 0.16
+| Vali MAE (median): 5.79 RMES (median): 9.55 MAPE (median): 0.16 
+| CRPS (Vali): 0.08
+| Test MAE (mean): 6.02 RMES (mean): 9.53 MAPE (mean): 0.17
+| Test MAE (median): 5.93 RMES (median): 9.72 MAPE (median): 0.17 
+| CRPS (Test): 0.08
+Validation CRPS decreased (0.088034 --> 0.081017).  Saving model ...
+Epoch: 21 training cost time: 9.30
+Epoch: 21, Steps: 112 | Train Loss: 0.1617
+Epoch: 22 training cost time: 9.34
+Epoch: 22, Steps: 112 | Train Loss: 0.1581
+Epoch: 23 training cost time: 9.42
+Epoch: 23, Steps: 112 | Train Loss: 0.1741
+Epoch: 24 training cost time: 8.80
+Epoch: 24, Steps: 112 | Train Loss: 0.1691
+Epoch: 25 training cost time: 9.16
+Epoch: 25, eval cost time: 55.07 | Train Loss: 0.16
+| Vali MAE (mean): 5.35 RMES (mean): 8.66 MAPE (mean): 0.14
+| Vali MAE (median): 5.29 RMES (median): 8.86 MAPE (median): 0.14 
+| CRPS (Vali): 0.07
+| Test MAE (mean): 5.47 RMES (mean): 8.81 MAPE (mean): 0.15
+| Test MAE (median): 5.43 RMES (median): 8.99 MAPE (median): 0.15 
+| CRPS (Test): 0.08
+Validation CRPS decreased (0.081017 --> 0.072800).  Saving model ...
+Epoch: 26 training cost time: 9.36
+Epoch: 26, Steps: 112 | Train Loss: 0.1511
+Epoch: 27 training cost time: 10.00
+Epoch: 27, Steps: 112 | Train Loss: 0.1655
+Epoch: 28 training cost time: 9.77
+Epoch: 28, Steps: 112 | Train Loss: 0.1504
+Epoch: 29 training cost time: 8.99
+Epoch: 29, Steps: 112 | Train Loss: 0.1530
+Epoch: 30 training cost time: 10.03
+Epoch: 30, eval cost time: 57.69 | Train Loss: 0.16
+| Vali MAE (mean): 4.82 RMES (mean): 8.05 MAPE (mean): 0.13
+| Vali MAE (median): 4.78 RMES (median): 8.22 MAPE (median): 0.13 
+| CRPS (Vali): 0.07
+| Test MAE (mean): 4.91 RMES (mean): 7.93 MAPE (mean): 0.14
+| Test MAE (median): 4.84 RMES (median): 8.07 MAPE (median): 0.14 
+| CRPS (Test): 0.07
+Validation CRPS decreased (0.072800 --> 0.066198).  Saving model ...
+Epoch: 31 training cost time: 9.48
+Epoch: 31, Steps: 112 | Train Loss: 0.1476
+Epoch: 32 training cost time: 9.54
+Epoch: 32, Steps: 112 | Train Loss: 0.1456
+Epoch: 33 training cost time: 10.22
+Epoch: 33, Steps: 112 | Train Loss: 0.1542
+Epoch: 34 training cost time: 9.07
+Epoch: 34, Steps: 112 | Train Loss: 0.1599
+Epoch: 35 training cost time: 8.85
+Epoch: 35, eval cost time: 55.60 | Train Loss: 0.15
+| Vali MAE (mean): 5.11 RMES (mean): 8.25 MAPE (mean): 0.12
+| Vali MAE (median): 4.92 RMES (median): 8.25 MAPE (median): 0.12 
+| CRPS (Vali): 0.07
+| Test MAE (mean): 5.11 RMES (mean): 8.07 MAPE (mean): 0.13
+| Test MAE (median): 4.93 RMES (median): 8.09 MAPE (median): 0.12 
+| CRPS (Test): 0.07
+EarlyStopping counter: 1 out of 100
+Epoch: 36 training cost time: 8.98
+Epoch: 36, Steps: 112 | Train Loss: 0.1571
+Epoch: 37 training cost time: 8.91
+Epoch: 37, Steps: 112 | Train Loss: 0.1497
+Epoch: 38 training cost time: 8.95
+Epoch: 38, Steps: 112 | Train Loss: 0.1538
+Epoch: 39 training cost time: 9.74
+Epoch: 39, Steps: 112 | Train Loss: 0.1499
+Epoch: 40 training cost time: 9.11
+Epoch: 40, eval cost time: 55.08 | Train Loss: 0.16
+| Vali MAE (mean): 4.33 RMES (mean): 7.36 MAPE (mean): 0.12
+| Vali MAE (median): 4.31 RMES (median): 7.44 MAPE (median): 0.12 
+| CRPS (Vali): 0.06
+| Test MAE (mean): 4.50 RMES (mean): 7.50 MAPE (mean): 0.13
+| Test MAE (median): 4.47 RMES (median): 7.59 MAPE (median): 0.13 
+| CRPS (Test): 0.06
+Validation CRPS decreased (0.066198 --> 0.060473).  Saving model ...
+Epoch: 41 training cost time: 9.37
+Epoch: 41, Steps: 112 | Train Loss: 0.1534
+Epoch: 42 training cost time: 9.08
+Epoch: 42, Steps: 112 | Train Loss: 0.1574
+Epoch: 43 training cost time: 9.11
+Epoch: 43, Steps: 112 | Train Loss: 0.1467
+Epoch: 44 training cost time: 9.08
+Epoch: 44, Steps: 112 | Train Loss: 0.1570
+Epoch: 45 training cost time: 9.09
+Epoch: 45, eval cost time: 54.67 | Train Loss: 0.15
+| Vali MAE (mean): 4.41 RMES (mean): 7.50 MAPE (mean): 0.12
+| Vali MAE (median): 4.42 RMES (median): 7.62 MAPE (median): 0.12 
+| CRPS (Vali): 0.06
+| Test MAE (mean): 4.58 RMES (mean): 7.71 MAPE (mean): 0.14
+| Test MAE (median): 4.57 RMES (median): 7.83 MAPE (median): 0.14 
+| CRPS (Test): 0.06
+EarlyStopping counter: 1 out of 100
+Epoch: 46 training cost time: 9.10
+Epoch: 46, Steps: 112 | Train Loss: 0.1561
+Epoch: 47 training cost time: 9.20
+Epoch: 47, Steps: 112 | Train Loss: 0.1511
+Epoch: 48 training cost time: 9.17
+Epoch: 48, Steps: 112 | Train Loss: 0.1656
+Epoch: 49 training cost time: 9.18
+Epoch: 49, Steps: 112 | Train Loss: 0.1409
+Epoch: 50 training cost time: 9.14
+Epoch: 50, eval cost time: 54.83 | Train Loss: 0.15
+| Vali MAE (mean): 4.25 RMES (mean): 7.21 MAPE (mean): 0.11
+| Vali MAE (median): 4.19 RMES (median): 7.30 MAPE (median): 0.11 
+| CRPS (Vali): 0.06
+| Test MAE (mean): 4.40 RMES (mean): 7.26 MAPE (mean): 0.11
+| Test MAE (median): 4.32 RMES (median): 7.36 MAPE (median): 0.11 
+| CRPS (Test): 0.06
+Validation CRPS decreased (0.060473 --> 0.057418).  Saving model ...
+Epoch: 51 training cost time: 9.17
+Epoch: 51, Steps: 112 | Train Loss: 0.1491
+Epoch: 52 training cost time: 8.92
+Epoch: 52, Steps: 112 | Train Loss: 0.1596
+Epoch: 53 training cost time: 8.89
+Epoch: 53, Steps: 112 | Train Loss: 0.1416
+Epoch: 54 training cost time: 9.00
+Epoch: 54, Steps: 112 | Train Loss: 0.1510
+Epoch: 55 training cost time: 10.01
+Epoch: 55, eval cost time: 60.26 | Train Loss: 0.14
+| Vali MAE (mean): 4.15 RMES (mean): 7.03 MAPE (mean): 0.10
+| Vali MAE (median): 4.08 RMES (median): 7.10 MAPE (median): 0.10 
+| CRPS (Vali): 0.06
+| Test MAE (mean): 4.26 RMES (mean): 7.08 MAPE (mean): 0.11
+| Test MAE (median): 4.17 RMES (median): 7.15 MAPE (median): 0.11 
+| CRPS (Test): 0.06
+Validation CRPS decreased (0.057418 --> 0.056006).  Saving model ...
+Epoch: 56 training cost time: 10.56
+Epoch: 56, Steps: 112 | Train Loss: 0.1518
+Epoch: 57 training cost time: 9.57
+Epoch: 57, Steps: 112 | Train Loss: 0.1486
+Epoch: 58 training cost time: 9.94
+Epoch: 58, Steps: 112 | Train Loss: 0.1417
+Epoch: 59 training cost time: 9.58
+Epoch: 59, Steps: 112 | Train Loss: 0.1417
+Epoch: 60 training cost time: 9.67
+Epoch: 60, eval cost time: 58.07 | Train Loss: 0.15
+| Vali MAE (mean): 4.20 RMES (mean): 6.82 MAPE (mean): 0.10
+| Vali MAE (median): 4.08 RMES (median): 6.81 MAPE (median): 0.10 
+| CRPS (Vali): 0.06
+| Test MAE (mean): 4.46 RMES (mean): 7.11 MAPE (mean): 0.12
+| Test MAE (median): 4.31 RMES (median): 7.07 MAPE (median): 0.11 
+| CRPS (Test): 0.06
+EarlyStopping counter: 1 out of 100
+Epoch: 61 training cost time: 9.44
+Epoch: 61, Steps: 112 | Train Loss: 0.1561
+Epoch: 62 training cost time: 9.21
+Epoch: 62, Steps: 112 | Train Loss: 0.1565
+Epoch: 63 training cost time: 9.22
+Epoch: 63, Steps: 112 | Train Loss: 0.1491
+Epoch: 64 training cost time: 9.62
+Epoch: 64, Steps: 112 | Train Loss: 0.1487
+Epoch: 65 training cost time: 9.08
+Epoch: 65, eval cost time: 58.16 | Train Loss: 0.14
+| Vali MAE (mean): 3.89 RMES (mean): 6.73 MAPE (mean): 0.10
+| Vali MAE (median): 3.86 RMES (median): 6.81 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 4.02 RMES (mean): 6.87 MAPE (mean): 0.11
+| Test MAE (median): 3.98 RMES (median): 6.93 MAPE (median): 0.11 
+| CRPS (Test): 0.06
+Validation CRPS decreased (0.056006 --> 0.053429).  Saving model ...
+Epoch: 66 training cost time: 9.25
+Epoch: 66, Steps: 112 | Train Loss: 0.1459
+Epoch: 67 training cost time: 9.27
+Epoch: 67, Steps: 112 | Train Loss: 0.1437
+Epoch: 68 training cost time: 9.19
+Epoch: 68, Steps: 112 | Train Loss: 0.1520
+Epoch: 69 training cost time: 9.37
+Epoch: 69, Steps: 112 | Train Loss: 0.1529
+Epoch: 70 training cost time: 9.51
+Epoch: 70, eval cost time: 59.01 | Train Loss: 0.14
+| Vali MAE (mean): 3.98 RMES (mean): 6.70 MAPE (mean): 0.10
+| Vali MAE (median): 3.93 RMES (median): 6.76 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 4.23 RMES (mean): 7.07 MAPE (mean): 0.12
+| Test MAE (median): 4.14 RMES (median): 7.08 MAPE (median): 0.12 
+| CRPS (Test): 0.06
+EarlyStopping counter: 1 out of 100
+Epoch: 71 training cost time: 9.97
+Epoch: 71, Steps: 112 | Train Loss: 0.1478
+Epoch: 72 training cost time: 10.28
+Epoch: 72, Steps: 112 | Train Loss: 0.1459
+Epoch: 73 training cost time: 12.24
+Epoch: 73, Steps: 112 | Train Loss: 0.1506
+Epoch: 74 training cost time: 11.80
+Epoch: 74, Steps: 112 | Train Loss: 0.1522
+Epoch: 75 training cost time: 9.24
+Epoch: 75, eval cost time: 58.44 | Train Loss: 0.15
+| Vali MAE (mean): 4.07 RMES (mean): 7.04 MAPE (mean): 0.10
+| Vali MAE (median): 4.02 RMES (median): 7.11 MAPE (median): 0.10 
+| CRPS (Vali): 0.06
+| Test MAE (mean): 4.22 RMES (mean): 7.14 MAPE (mean): 0.11
+| Test MAE (median): 4.14 RMES (median): 7.18 MAPE (median): 0.11 
+| CRPS (Test): 0.06
+EarlyStopping counter: 2 out of 100
+Epoch: 76 training cost time: 9.16
+Epoch: 76, Steps: 112 | Train Loss: 0.1304
+Epoch: 77 training cost time: 9.10
+Epoch: 77, Steps: 112 | Train Loss: 0.1475
+Epoch: 78 training cost time: 9.07
+Epoch: 78, Steps: 112 | Train Loss: 0.1490
+Epoch: 79 training cost time: 10.21
+Epoch: 79, Steps: 112 | Train Loss: 0.1509
+Epoch: 80 training cost time: 9.34
+Epoch: 80, eval cost time: 55.97 | Train Loss: 0.15
+| Vali MAE (mean): 4.56 RMES (mean): 7.54 MAPE (mean): 0.10
+| Vali MAE (median): 4.38 RMES (median): 7.52 MAPE (median): 0.10 
+| CRPS (Vali): 0.06
+| Test MAE (mean): 4.90 RMES (mean): 8.00 MAPE (mean): 0.11
+| Test MAE (median): 4.68 RMES (median): 7.95 MAPE (median): 0.11 
+| CRPS (Test): 0.07
+EarlyStopping counter: 3 out of 100
+Epoch: 81 training cost time: 9.49
+Epoch: 81, Steps: 112 | Train Loss: 0.1475
+Epoch: 82 training cost time: 9.26
+Epoch: 82, Steps: 112 | Train Loss: 0.1453
+Epoch: 83 training cost time: 9.13
+Epoch: 83, Steps: 112 | Train Loss: 0.1462
+Epoch: 84 training cost time: 9.16
+Epoch: 84, Steps: 112 | Train Loss: 0.1433
+Epoch: 85 training cost time: 9.09
+Epoch: 85, eval cost time: 54.80 | Train Loss: 0.15
+| Vali MAE (mean): 3.98 RMES (mean): 6.81 MAPE (mean): 0.11
+| Vali MAE (median): 3.95 RMES (median): 6.84 MAPE (median): 0.11 
+| CRPS (Vali): 0.06
+| Test MAE (mean): 4.10 RMES (mean): 6.94 MAPE (mean): 0.12
+| Test MAE (median): 4.06 RMES (median): 6.95 MAPE (median): 0.12 
+| CRPS (Test): 0.06
+EarlyStopping counter: 4 out of 100
+Epoch: 86 training cost time: 9.20
+Epoch: 86, Steps: 112 | Train Loss: 0.1506
+Epoch: 87 training cost time: 9.11
+Epoch: 87, Steps: 112 | Train Loss: 0.1397
+Epoch: 88 training cost time: 9.05
+Epoch: 88, Steps: 112 | Train Loss: 0.1545
+Epoch: 89 training cost time: 9.06
+Epoch: 89, Steps: 112 | Train Loss: 0.1442
+Epoch: 90 training cost time: 9.02
+Epoch: 90, eval cost time: 54.81 | Train Loss: 0.14
+| Vali MAE (mean): 4.09 RMES (mean): 6.70 MAPE (mean): 0.10
+| Vali MAE (median): 4.01 RMES (median): 6.71 MAPE (median): 0.10 
+| CRPS (Vali): 0.06
+| Test MAE (mean): 4.24 RMES (mean): 6.88 MAPE (mean): 0.11
+| Test MAE (median): 4.15 RMES (median): 6.89 MAPE (median): 0.11 
+| CRPS (Test): 0.06
+EarlyStopping counter: 5 out of 100
+Epoch: 91 training cost time: 9.17
+Epoch: 91, Steps: 112 | Train Loss: 0.1370
+Epoch: 92 training cost time: 9.09
+Epoch: 92, Steps: 112 | Train Loss: 0.1457
+Epoch: 93 training cost time: 9.09
+Epoch: 93, Steps: 112 | Train Loss: 0.1454
+Epoch: 94 training cost time: 9.00
+Epoch: 94, Steps: 112 | Train Loss: 0.1397
+Epoch: 95 training cost time: 9.08
+Epoch: 95, eval cost time: 54.89 | Train Loss: 0.14
+| Vali MAE (mean): 3.79 RMES (mean): 6.62 MAPE (mean): 0.10
+| Vali MAE (median): 3.78 RMES (median): 6.70 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.90 RMES (mean): 6.78 MAPE (mean): 0.12
+| Test MAE (median): 3.88 RMES (median): 6.86 MAPE (median): 0.11 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.053429 --> 0.052904).  Saving model ...
+Epoch: 96 training cost time: 9.22
+Epoch: 96, Steps: 112 | Train Loss: 0.1489
+Epoch: 97 training cost time: 9.07
+Epoch: 97, Steps: 112 | Train Loss: 0.1450
+Epoch: 98 training cost time: 9.24
+Epoch: 98, Steps: 112 | Train Loss: 0.1373
+Epoch: 99 training cost time: 9.00
+Epoch: 99, Steps: 112 | Train Loss: 0.1445
+Epoch: 100 training cost time: 9.07
+Epoch: 100, eval cost time: 55.35 | Train Loss: 0.14
+| Vali MAE (mean): 3.96 RMES (mean): 6.85 MAPE (mean): 0.10
+| Vali MAE (median): 3.90 RMES (median): 6.91 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 4.25 RMES (mean): 7.33 MAPE (mean): 0.11
+| Test MAE (median): 4.16 RMES (median): 7.39 MAPE (median): 0.11 
+| CRPS (Test): 0.06
+EarlyStopping counter: 1 out of 100
+Epoch: 101 training cost time: 9.28
+Epoch: 101, Steps: 112 | Train Loss: 0.1379
+Epoch: 102 training cost time: 9.11
+Epoch: 102, Steps: 112 | Train Loss: 0.1480
+Epoch: 103 training cost time: 9.18
+Epoch: 103, Steps: 112 | Train Loss: 0.1422
+Epoch: 104 training cost time: 8.97
+Epoch: 104, Steps: 112 | Train Loss: 0.1486
+Epoch: 105 training cost time: 9.08
+Epoch: 105, eval cost time: 55.15 | Train Loss: 0.14
+| Vali MAE (mean): 3.74 RMES (mean): 6.46 MAPE (mean): 0.10
+| Vali MAE (median): 3.72 RMES (median): 6.52 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.81 RMES (mean): 6.49 MAPE (mean): 0.10
+| Test MAE (median): 3.78 RMES (median): 6.53 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.052904 --> 0.052050).  Saving model ...
+Epoch: 106 training cost time: 9.30
+Epoch: 106, Steps: 112 | Train Loss: 0.1374
+Epoch: 107 training cost time: 9.13
+Epoch: 107, Steps: 112 | Train Loss: 0.1461
+Epoch: 108 training cost time: 9.11
+Epoch: 108, Steps: 112 | Train Loss: 0.1374
+Epoch: 109 training cost time: 9.02
+Epoch: 109, Steps: 112 | Train Loss: 0.1438
+Epoch: 110 training cost time: 9.10
+Epoch: 110, eval cost time: 55.02 | Train Loss: 0.15
+| Vali MAE (mean): 3.87 RMES (mean): 6.67 MAPE (mean): 0.09
+| Vali MAE (median): 3.80 RMES (median): 6.68 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.96 RMES (mean): 6.74 MAPE (mean): 0.10
+| Test MAE (median): 3.88 RMES (median): 6.77 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 1 out of 100
+Epoch: 111 training cost time: 9.30
+Epoch: 111, Steps: 112 | Train Loss: 0.1547
+Epoch: 112 training cost time: 9.10
+Epoch: 112, Steps: 112 | Train Loss: 0.1451
+Epoch: 113 training cost time: 9.20
+Epoch: 113, Steps: 112 | Train Loss: 0.1409
+Epoch: 114 training cost time: 9.02
+Epoch: 114, Steps: 112 | Train Loss: 0.1421
+Epoch: 115 training cost time: 9.08
+Epoch: 115, eval cost time: 54.50 | Train Loss: 0.15
+| Vali MAE (mean): 3.68 RMES (mean): 6.35 MAPE (mean): 0.09
+| Vali MAE (median): 3.64 RMES (median): 6.39 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.87 RMES (mean): 6.66 MAPE (mean): 0.10
+| Test MAE (median): 3.83 RMES (median): 6.73 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.052050 --> 0.050278).  Saving model ...
+Epoch: 116 training cost time: 10.00
+Epoch: 116, Steps: 112 | Train Loss: 0.1425
+Epoch: 117 training cost time: 9.33
+Epoch: 117, Steps: 112 | Train Loss: 0.1411
+Epoch: 118 training cost time: 9.13
+Epoch: 118, Steps: 112 | Train Loss: 0.1549
+Epoch: 119 training cost time: 9.11
+Epoch: 119, Steps: 112 | Train Loss: 0.1463
+Epoch: 120 training cost time: 9.18
+Epoch: 120, eval cost time: 55.10 | Train Loss: 0.15
+| Vali MAE (mean): 4.02 RMES (mean): 6.64 MAPE (mean): 0.09
+| Vali MAE (median): 3.91 RMES (median): 6.61 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 4.22 RMES (mean): 6.93 MAPE (mean): 0.10
+| Test MAE (median): 4.10 RMES (median): 6.92 MAPE (median): 0.10 
+| CRPS (Test): 0.06
+EarlyStopping counter: 1 out of 100
+Epoch: 121 training cost time: 9.18
+Epoch: 121, Steps: 112 | Train Loss: 0.1386
+Epoch: 122 training cost time: 9.13
+Epoch: 122, Steps: 112 | Train Loss: 0.1411
+Epoch: 123 training cost time: 9.21
+Epoch: 123, Steps: 112 | Train Loss: 0.1467
+Epoch: 124 training cost time: 9.02
+Epoch: 124, Steps: 112 | Train Loss: 0.1469
+Epoch: 125 training cost time: 9.09
+Epoch: 125, eval cost time: 54.66 | Train Loss: 0.13
+| Vali MAE (mean): 3.69 RMES (mean): 6.47 MAPE (mean): 0.10
+| Vali MAE (median): 3.66 RMES (median): 6.50 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.79 RMES (mean): 6.52 MAPE (mean): 0.10
+| Test MAE (median): 3.75 RMES (median): 6.56 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 2 out of 100
+Epoch: 126 training cost time: 9.26
+Epoch: 126, Steps: 112 | Train Loss: 0.1493
+Epoch: 127 training cost time: 9.07
+Epoch: 127, Steps: 112 | Train Loss: 0.1513
+Epoch 00127: reducing learning rate of group 0 to 1.8000e-03.
+Epoch 00127: reducing learning rate of group 0 to 1.8000e-03.
+Epoch: 128 training cost time: 9.09
+Epoch: 128, Steps: 112 | Train Loss: 0.1502
+Epoch: 129 training cost time: 8.99
+Epoch: 129, Steps: 112 | Train Loss: 0.1465
+Epoch: 130 training cost time: 9.15
+Epoch: 130, eval cost time: 54.36 | Train Loss: 0.15
+| Vali MAE (mean): 3.83 RMES (mean): 6.47 MAPE (mean): 0.09
+| Vali MAE (median): 3.75 RMES (median): 6.46 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 4.03 RMES (mean): 6.87 MAPE (mean): 0.10
+| Test MAE (median): 3.94 RMES (median): 6.93 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 3 out of 100
+Epoch: 131 training cost time: 9.23
+Epoch: 131, Steps: 112 | Train Loss: 0.1368
+Epoch: 132 training cost time: 9.09
+Epoch: 132, Steps: 112 | Train Loss: 0.1418
+Epoch: 133 training cost time: 9.01
+Epoch: 133, Steps: 112 | Train Loss: 0.1382
+Epoch: 134 training cost time: 9.12
+Epoch: 134, Steps: 112 | Train Loss: 0.1379
+Epoch: 135 training cost time: 9.16
+Epoch: 135, eval cost time: 56.45 | Train Loss: 0.14
+| Vali MAE (mean): 3.66 RMES (mean): 6.39 MAPE (mean): 0.10
+| Vali MAE (median): 3.64 RMES (median): 6.45 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.76 RMES (mean): 6.48 MAPE (mean): 0.11
+| Test MAE (median): 3.73 RMES (median): 6.54 MAPE (median): 0.11 
+| CRPS (Test): 0.05
+EarlyStopping counter: 4 out of 100
+Epoch: 136 training cost time: 9.02
+Epoch: 136, Steps: 112 | Train Loss: 0.1383
+Epoch: 137 training cost time: 9.43
+Epoch: 137, Steps: 112 | Train Loss: 0.1412
+Epoch: 138 training cost time: 9.38
+Epoch: 138, Steps: 112 | Train Loss: 0.1402
+Epoch: 139 training cost time: 9.13
+Epoch: 139, Steps: 112 | Train Loss: 0.1436
+Epoch: 140 training cost time: 9.22
+Epoch: 140, eval cost time: 54.83 | Train Loss: 0.15
+| Vali MAE (mean): 3.69 RMES (mean): 6.43 MAPE (mean): 0.10
+| Vali MAE (median): 3.66 RMES (median): 6.48 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.82 RMES (mean): 6.58 MAPE (mean): 0.10
+| Test MAE (median): 3.76 RMES (median): 6.61 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 5 out of 100
+Epoch: 141 training cost time: 9.15
+Epoch: 141, Steps: 112 | Train Loss: 0.1428
+Epoch: 142 training cost time: 9.03
+Epoch: 142, Steps: 112 | Train Loss: 0.1418
+Epoch: 143 training cost time: 9.28
+Epoch: 143, Steps: 112 | Train Loss: 0.1391
+Epoch: 144 training cost time: 9.49
+Epoch: 144, Steps: 112 | Train Loss: 0.1431
+Epoch: 145 training cost time: 9.29
+Epoch: 145, eval cost time: 54.77 | Train Loss: 0.14
+| Vali MAE (mean): 3.74 RMES (mean): 6.37 MAPE (mean): 0.09
+| Vali MAE (median): 3.68 RMES (median): 6.39 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.86 RMES (mean): 6.56 MAPE (mean): 0.10
+| Test MAE (median): 3.78 RMES (median): 6.55 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 6 out of 100
+Epoch: 146 training cost time: 9.10
+Epoch: 146, Steps: 112 | Train Loss: 0.1455
+Epoch: 147 training cost time: 9.14
+Epoch: 147, Steps: 112 | Train Loss: 0.1316
+Epoch: 148 training cost time: 9.25
+Epoch: 148, Steps: 112 | Train Loss: 0.1411
+Epoch: 149 training cost time: 9.28
+Epoch: 149, Steps: 112 | Train Loss: 0.1469
+Epoch: 150 training cost time: 9.06
+Epoch: 150, eval cost time: 54.49 | Train Loss: 0.14
+| Vali MAE (mean): 3.68 RMES (mean): 6.49 MAPE (mean): 0.10
+| Vali MAE (median): 3.66 RMES (median): 6.55 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.80 RMES (mean): 6.59 MAPE (mean): 0.11
+| Test MAE (median): 3.75 RMES (median): 6.65 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 7 out of 100
+Epoch: 151 training cost time: 9.13
+Epoch: 151, Steps: 112 | Train Loss: 0.1346
+Epoch: 152 training cost time: 8.99
+Epoch: 152, Steps: 112 | Train Loss: 0.1428
+Epoch: 153 training cost time: 8.94
+Epoch: 153, Steps: 112 | Train Loss: 0.1404
+Epoch: 154 training cost time: 9.06
+Epoch: 154, Steps: 112 | Train Loss: 0.1317
+Epoch: 155 training cost time: 9.51
+Epoch: 155, eval cost time: 55.29 | Train Loss: 0.14
+| Vali MAE (mean): 3.61 RMES (mean): 6.23 MAPE (mean): 0.09
+| Vali MAE (median): 3.56 RMES (median): 6.26 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.72 RMES (mean): 6.38 MAPE (mean): 0.10
+| Test MAE (median): 3.66 RMES (median): 6.41 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.050278 --> 0.049373).  Saving model ...
+Epoch: 156 training cost time: 9.20
+Epoch: 156, Steps: 112 | Train Loss: 0.1406
+Epoch: 157 training cost time: 8.95
+Epoch: 157, Steps: 112 | Train Loss: 0.1361
+Epoch: 158 training cost time: 10.63
+Epoch: 158, Steps: 112 | Train Loss: 0.1381
+Epoch: 159 training cost time: 9.10
+Epoch: 159, Steps: 112 | Train Loss: 0.1418
+Epoch: 160 training cost time: 10.25
+Epoch: 160, eval cost time: 54.85 | Train Loss: 0.15
+| Vali MAE (mean): 3.75 RMES (mean): 6.44 MAPE (mean): 0.09
+| Vali MAE (median): 3.70 RMES (median): 6.46 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.82 RMES (mean): 6.51 MAPE (mean): 0.10
+| Test MAE (median): 3.76 RMES (median): 6.53 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 1 out of 100
+Epoch: 161 training cost time: 9.13
+Epoch: 161, Steps: 112 | Train Loss: 0.1445
+Epoch: 162 training cost time: 8.95
+Epoch: 162, Steps: 112 | Train Loss: 0.1373
+Epoch: 163 training cost time: 8.94
+Epoch: 163, Steps: 112 | Train Loss: 0.1421
+Epoch: 164 training cost time: 8.95
+Epoch: 164, Steps: 112 | Train Loss: 0.1413
+Epoch: 165 training cost time: 8.93
+Epoch: 165, eval cost time: 54.73 | Train Loss: 0.13
+| Vali MAE (mean): 3.71 RMES (mean): 6.38 MAPE (mean): 0.09
+| Vali MAE (median): 3.65 RMES (median): 6.37 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.90 RMES (mean): 6.68 MAPE (mean): 0.10
+| Test MAE (median): 3.82 RMES (median): 6.69 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 2 out of 100
+Epoch: 166 training cost time: 9.18
+Epoch: 166, Steps: 112 | Train Loss: 0.1489
+Epoch: 167 training cost time: 8.96
+Epoch: 167, Steps: 112 | Train Loss: 0.1406
+Epoch: 168 training cost time: 9.02
+Epoch: 168, Steps: 112 | Train Loss: 0.1473
+Epoch: 169 training cost time: 8.98
+Epoch: 169, Steps: 112 | Train Loss: 0.1401
+Epoch: 170 training cost time: 8.93
+Epoch: 170, eval cost time: 54.69 | Train Loss: 0.14
+| Vali MAE (mean): 3.71 RMES (mean): 6.22 MAPE (mean): 0.09
+| Vali MAE (median): 3.64 RMES (median): 6.23 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.79 RMES (mean): 6.34 MAPE (mean): 0.10
+| Test MAE (median): 3.70 RMES (median): 6.34 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 3 out of 100
+Epoch: 171 training cost time: 9.17
+Epoch: 171, Steps: 112 | Train Loss: 0.1475
+Epoch: 172 training cost time: 8.98
+Epoch: 172, Steps: 112 | Train Loss: 0.1347
+Epoch: 173 training cost time: 9.07
+Epoch: 173, Steps: 112 | Train Loss: 0.1491
+Epoch: 174 training cost time: 8.99
+Epoch: 174, Steps: 112 | Train Loss: 0.1407
+Epoch: 175 training cost time: 9.04
+Epoch: 175, eval cost time: 56.32 | Train Loss: 0.14
+| Vali MAE (mean): 3.72 RMES (mean): 6.27 MAPE (mean): 0.09
+| Vali MAE (median): 3.67 RMES (median): 6.30 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.92 RMES (mean): 6.55 MAPE (mean): 0.11
+| Test MAE (median): 3.84 RMES (median): 6.56 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 4 out of 100
+Epoch: 176 training cost time: 9.54
+Epoch: 176, Steps: 112 | Train Loss: 0.1332
+Epoch: 177 training cost time: 9.57
+Epoch: 177, Steps: 112 | Train Loss: 0.1378
+Epoch: 178 training cost time: 9.56
+Epoch: 178, Steps: 112 | Train Loss: 0.1424
+Epoch 00178: reducing learning rate of group 0 to 1.6200e-03.
+Epoch: 179 training cost time: 9.52
+Epoch: 179, Steps: 112 | Train Loss: 0.1337
+Epoch: 180 training cost time: 9.54
+Epoch: 180, eval cost time: 57.23 | Train Loss: 0.14
+| Vali MAE (mean): 3.70 RMES (mean): 6.38 MAPE (mean): 0.10
+| Vali MAE (median): 3.67 RMES (median): 6.43 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.81 RMES (mean): 6.53 MAPE (mean): 0.11
+| Test MAE (median): 3.76 RMES (median): 6.55 MAPE (median): 0.11 
+| CRPS (Test): 0.05
+EarlyStopping counter: 5 out of 100
+Epoch: 181 training cost time: 9.55
+Epoch: 181, Steps: 112 | Train Loss: 0.1368
+Epoch: 182 training cost time: 9.52
+Epoch: 182, Steps: 112 | Train Loss: 0.1292
+Epoch: 183 training cost time: 9.52
+Epoch: 183, Steps: 112 | Train Loss: 0.1382
+Epoch: 184 training cost time: 9.55
+Epoch: 184, Steps: 112 | Train Loss: 0.1423
+Epoch: 185 training cost time: 9.56
+Epoch: 185, eval cost time: 57.44 | Train Loss: 0.13
+| Vali MAE (mean): 3.75 RMES (mean): 6.69 MAPE (mean): 0.11
+| Vali MAE (median): 3.76 RMES (median): 6.79 MAPE (median): 0.11 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.79 RMES (mean): 6.65 MAPE (mean): 0.11
+| Test MAE (median): 3.79 RMES (median): 6.74 MAPE (median): 0.11 
+| CRPS (Test): 0.05
+EarlyStopping counter: 6 out of 100
+Epoch: 186 training cost time: 9.55
+Epoch: 186, Steps: 112 | Train Loss: 0.1415
+Epoch: 187 training cost time: 9.56
+Epoch: 187, Steps: 112 | Train Loss: 0.1409
+Epoch: 188 training cost time: 9.54
+Epoch: 188, Steps: 112 | Train Loss: 0.1406
+Epoch: 189 training cost time: 9.55
+Epoch: 189, Steps: 112 | Train Loss: 0.1438
+Epoch: 190 training cost time: 9.52
+Epoch: 190, eval cost time: 57.43 | Train Loss: 0.14
+| Vali MAE (mean): 3.83 RMES (mean): 6.42 MAPE (mean): 0.09
+| Vali MAE (median): 3.75 RMES (median): 6.39 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.92 RMES (mean): 6.57 MAPE (mean): 0.10
+| Test MAE (median): 3.82 RMES (median): 6.55 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 7 out of 100
+Epoch: 191 training cost time: 9.57
+Epoch: 191, Steps: 112 | Train Loss: 0.1364
+Epoch: 192 training cost time: 9.53
+Epoch: 192, Steps: 112 | Train Loss: 0.1371
+Epoch: 193 training cost time: 9.53
+Epoch: 193, Steps: 112 | Train Loss: 0.1400
+Epoch: 194 training cost time: 9.54
+Epoch: 194, Steps: 112 | Train Loss: 0.1393
+Epoch: 195 training cost time: 9.66
+Epoch: 195, eval cost time: 57.29 | Train Loss: 0.14
+| Vali MAE (mean): 3.72 RMES (mean): 6.47 MAPE (mean): 0.10
+| Vali MAE (median): 3.70 RMES (median): 6.53 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.73 RMES (mean): 6.38 MAPE (mean): 0.10
+| Test MAE (median): 3.68 RMES (median): 6.40 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 8 out of 100
+Epoch: 196 training cost time: 9.58
+Epoch: 196, Steps: 112 | Train Loss: 0.1352
+Epoch: 197 training cost time: 9.51
+Epoch: 197, Steps: 112 | Train Loss: 0.1406
+Epoch: 198 training cost time: 9.55
+Epoch: 198, Steps: 112 | Train Loss: 0.1412
+Epoch: 199 training cost time: 9.51
+Epoch: 199, Steps: 112 | Train Loss: 0.1334
+Epoch: 200 training cost time: 9.46
+Epoch: 200, eval cost time: 55.87 | Train Loss: 0.13
+| Vali MAE (mean): 3.68 RMES (mean): 6.31 MAPE (mean): 0.10
+| Vali MAE (median): 3.67 RMES (median): 6.38 MAPE (median): 0.10 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.74 RMES (mean): 6.41 MAPE (mean): 0.11
+| Test MAE (median): 3.70 RMES (median): 6.45 MAPE (median): 0.11 
+| CRPS (Test): 0.05
+EarlyStopping counter: 9 out of 100
+Epoch: 201 training cost time: 9.33
+Epoch: 201, Steps: 112 | Train Loss: 0.1319
+Epoch: 202 training cost time: 9.11
+Epoch: 202, Steps: 112 | Train Loss: 0.1463
+Epoch: 203 training cost time: 9.14
+Epoch: 203, Steps: 112 | Train Loss: 0.1361
+Epoch: 204 training cost time: 9.10
+Epoch: 204, Steps: 112 | Train Loss: 0.1396
+Epoch: 205 training cost time: 9.09
+Epoch: 205, eval cost time: 57.14 | Train Loss: 0.15
+| Vali MAE (mean): 3.59 RMES (mean): 6.14 MAPE (mean): 0.09
+| Vali MAE (median): 3.53 RMES (median): 6.15 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.73 RMES (mean): 6.37 MAPE (mean): 0.10
+| Test MAE (median): 3.64 RMES (median): 6.35 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.049373 --> 0.048905).  Saving model ...
+Epoch: 206 training cost time: 10.34
+Epoch: 206, Steps: 112 | Train Loss: 0.1382
+Epoch: 207 training cost time: 9.56
+Epoch: 207, Steps: 112 | Train Loss: 0.1453
+Epoch: 208 training cost time: 9.57
+Epoch: 208, Steps: 112 | Train Loss: 0.1464
+Epoch: 209 training cost time: 9.52
+Epoch: 209, Steps: 112 | Train Loss: 0.1418
+Epoch: 210 training cost time: 9.52
+Epoch: 210, eval cost time: 57.55 | Train Loss: 0.14
+| Vali MAE (mean): 3.63 RMES (mean): 6.22 MAPE (mean): 0.09
+| Vali MAE (median): 3.57 RMES (median): 6.24 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.67 RMES (mean): 6.26 MAPE (mean): 0.09
+| Test MAE (median): 3.61 RMES (median): 6.27 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 1 out of 100
+Epoch: 211 training cost time: 9.52
+Epoch: 211, Steps: 112 | Train Loss: 0.1419
+Epoch: 212 training cost time: 9.58
+Epoch: 212, Steps: 112 | Train Loss: 0.1444
+Epoch: 213 training cost time: 9.62
+Epoch: 213, Steps: 112 | Train Loss: 0.1369
+Epoch: 214 training cost time: 9.55
+Epoch: 214, Steps: 112 | Train Loss: 0.1437
+Epoch: 215 training cost time: 9.56
+Epoch: 215, eval cost time: 57.21 | Train Loss: 0.14
+| Vali MAE (mean): 3.59 RMES (mean): 6.34 MAPE (mean): 0.09
+| Vali MAE (median): 3.57 RMES (median): 6.37 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.64 RMES (mean): 6.41 MAPE (mean): 0.10
+| Test MAE (median): 3.61 RMES (median): 6.45 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 2 out of 100
+Epoch: 216 training cost time: 9.57
+Epoch: 216, Steps: 112 | Train Loss: 0.1474
+Epoch 00216: reducing learning rate of group 0 to 1.6200e-03.
+Epoch: 217 training cost time: 9.55
+Epoch: 217, Steps: 112 | Train Loss: 0.1340
+Epoch: 218 training cost time: 9.57
+Epoch: 218, Steps: 112 | Train Loss: 0.1401
+Epoch: 219 training cost time: 10.11
+Epoch: 219, Steps: 112 | Train Loss: 0.1378
+Epoch: 220 training cost time: 9.63
+Epoch: 220, eval cost time: 54.98 | Train Loss: 0.14
+| Vali MAE (mean): 3.47 RMES (mean): 6.07 MAPE (mean): 0.09
+| Vali MAE (median): 3.44 RMES (median): 6.12 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.65 RMES (mean): 6.36 MAPE (mean): 0.10
+| Test MAE (median): 3.60 RMES (median): 6.39 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.048905 --> 0.047201).  Saving model ...
+Epoch: 221 training cost time: 9.42
+Epoch: 221, Steps: 112 | Train Loss: 0.1398
+Epoch: 222 training cost time: 9.12
+Epoch: 222, Steps: 112 | Train Loss: 0.1374
+Epoch: 223 training cost time: 9.10
+Epoch: 223, Steps: 112 | Train Loss: 0.1409
+Epoch: 224 training cost time: 9.07
+Epoch: 224, Steps: 112 | Train Loss: 0.1399
+Epoch: 225 training cost time: 9.09
+Epoch: 225, eval cost time: 55.28 | Train Loss: 0.15
+| Vali MAE (mean): 3.45 RMES (mean): 6.03 MAPE (mean): 0.09
+| Vali MAE (median): 3.40 RMES (median): 6.03 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.56 RMES (mean): 6.21 MAPE (mean): 0.09
+| Test MAE (median): 3.52 RMES (median): 6.27 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 1 out of 100
+Epoch: 226 training cost time: 9.45
+Epoch: 226, Steps: 112 | Train Loss: 0.1419
+Epoch: 227 training cost time: 9.13
+Epoch: 227, Steps: 112 | Train Loss: 0.1426
+Epoch: 228 training cost time: 9.13
+Epoch: 228, Steps: 112 | Train Loss: 0.1395
+Epoch: 229 training cost time: 9.16
+Epoch: 229, Steps: 112 | Train Loss: 0.1423
+Epoch: 230 training cost time: 9.18
+Epoch: 230, eval cost time: 55.12 | Train Loss: 0.14
+| Vali MAE (mean): 3.74 RMES (mean): 6.37 MAPE (mean): 0.09
+| Vali MAE (median): 3.65 RMES (median): 6.39 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.87 RMES (mean): 6.62 MAPE (mean): 0.09
+| Test MAE (median): 3.78 RMES (median): 6.67 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 2 out of 100
+Epoch: 231 training cost time: 9.37
+Epoch: 231, Steps: 112 | Train Loss: 0.1397
+Epoch: 232 training cost time: 9.15
+Epoch: 232, Steps: 112 | Train Loss: 0.1482
+Epoch: 233 training cost time: 9.09
+Epoch: 233, Steps: 112 | Train Loss: 0.1351
+Epoch: 234 training cost time: 9.15
+Epoch: 234, Steps: 112 | Train Loss: 0.1363
+Epoch: 235 training cost time: 9.11
+Epoch: 235, eval cost time: 54.75 | Train Loss: 0.14
+| Vali MAE (mean): 3.68 RMES (mean): 6.41 MAPE (mean): 0.09
+| Vali MAE (median): 3.63 RMES (median): 6.46 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.79 RMES (mean): 6.58 MAPE (mean): 0.09
+| Test MAE (median): 3.71 RMES (median): 6.60 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 3 out of 100
+Epoch: 236 training cost time: 9.31
+Epoch: 236, Steps: 112 | Train Loss: 0.1353
+Epoch: 237 training cost time: 9.12
+Epoch: 237, Steps: 112 | Train Loss: 0.1394
+Epoch: 238 training cost time: 9.12
+Epoch: 238, Steps: 112 | Train Loss: 0.1410
+Epoch: 239 training cost time: 9.15
+Epoch: 239, Steps: 112 | Train Loss: 0.1401
+Epoch: 240 training cost time: 9.15
+Epoch: 240, eval cost time: 54.90 | Train Loss: 0.14
+| Vali MAE (mean): 3.52 RMES (mean): 6.08 MAPE (mean): 0.09
+| Vali MAE (median): 3.46 RMES (median): 6.09 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.62 RMES (mean): 6.25 MAPE (mean): 0.09
+| Test MAE (median): 3.55 RMES (median): 6.26 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 4 out of 100
+Epoch: 241 training cost time: 9.42
+Epoch: 241, Steps: 112 | Train Loss: 0.1322
+Epoch: 242 training cost time: 9.15
+Epoch: 242, Steps: 112 | Train Loss: 0.1364
+Epoch: 243 training cost time: 9.20
+Epoch: 243, Steps: 112 | Train Loss: 0.1354
+Epoch: 244 training cost time: 9.12
+Epoch: 244, Steps: 112 | Train Loss: 0.1330
+Epoch: 245 training cost time: 9.11
+Epoch: 245, eval cost time: 55.00 | Train Loss: 0.14
+| Vali MAE (mean): 3.58 RMES (mean): 6.25 MAPE (mean): 0.09
+| Vali MAE (median): 3.56 RMES (median): 6.27 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.66 RMES (mean): 6.36 MAPE (mean): 0.10
+| Test MAE (median): 3.61 RMES (median): 6.39 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 5 out of 100
+Epoch: 246 training cost time: 9.36
+Epoch: 246, Steps: 112 | Train Loss: 0.1436
+Epoch: 247 training cost time: 9.13
+Epoch: 247, Steps: 112 | Train Loss: 0.1479
+Epoch: 248 training cost time: 9.15
+Epoch: 248, Steps: 112 | Train Loss: 0.1309
+Epoch: 249 training cost time: 9.18
+Epoch: 249, Steps: 112 | Train Loss: 0.1395
+Epoch: 250 training cost time: 9.13
+Epoch: 250, eval cost time: 54.67 | Train Loss: 0.14
+| Vali MAE (mean): 3.62 RMES (mean): 6.28 MAPE (mean): 0.09
+| Vali MAE (median): 3.57 RMES (median): 6.31 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.77 RMES (mean): 6.54 MAPE (mean): 0.10
+| Test MAE (median): 3.70 RMES (median): 6.59 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 6 out of 100
+Epoch: 251 training cost time: 9.31
+Epoch: 251, Steps: 112 | Train Loss: 0.1440
+Epoch: 252 training cost time: 9.12
+Epoch: 252, Steps: 112 | Train Loss: 0.1375
+Epoch: 253 training cost time: 9.10
+Epoch: 253, Steps: 112 | Train Loss: 0.1440
+Epoch: 254 training cost time: 9.24
+Epoch: 254, Steps: 112 | Train Loss: 0.1397
+Epoch: 255 training cost time: 9.14
+Epoch: 255, eval cost time: 54.47 | Train Loss: 0.14
+| Vali MAE (mean): 3.55 RMES (mean): 6.08 MAPE (mean): 0.09
+| Vali MAE (median): 3.46 RMES (median): 6.06 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.69 RMES (mean): 6.32 MAPE (mean): 0.10
+| Test MAE (median): 3.58 RMES (median): 6.31 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 7 out of 100
+Epoch: 256 training cost time: 9.35
+Epoch: 256, Steps: 112 | Train Loss: 0.1423
+Epoch: 257 training cost time: 9.71
+Epoch: 257, Steps: 112 | Train Loss: 0.1306
+Epoch: 258 training cost time: 9.51
+Epoch: 258, Steps: 112 | Train Loss: 0.1369
+Epoch: 259 training cost time: 9.50
+Epoch: 259, Steps: 112 | Train Loss: 0.1414
+Epoch: 260 training cost time: 9.53
+Epoch: 260, eval cost time: 57.35 | Train Loss: 0.14
+| Vali MAE (mean): 3.40 RMES (mean): 6.03 MAPE (mean): 0.09
+| Vali MAE (median): 3.37 RMES (median): 6.08 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.50 RMES (mean): 6.22 MAPE (mean): 0.09
+| Test MAE (median): 3.47 RMES (median): 6.29 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.047201 --> 0.046283).  Saving model ...
+Epoch: 261 training cost time: 9.56
+Epoch: 261, Steps: 112 | Train Loss: 0.1333
+Epoch: 262 training cost time: 9.52
+Epoch: 262, Steps: 112 | Train Loss: 0.1324
+Epoch: 263 training cost time: 9.52
+Epoch: 263, Steps: 112 | Train Loss: 0.1287
+Epoch: 264 training cost time: 9.54
+Epoch: 264, Steps: 112 | Train Loss: 0.1389
+Epoch: 265 training cost time: 9.54
+Epoch: 265, eval cost time: 57.56 | Train Loss: 0.14
+| Vali MAE (mean): 3.45 RMES (mean): 6.04 MAPE (mean): 0.09
+| Vali MAE (median): 3.41 RMES (median): 6.07 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.57 RMES (mean): 6.25 MAPE (mean): 0.10
+| Test MAE (median): 3.52 RMES (median): 6.27 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 1 out of 100
+Epoch: 266 training cost time: 9.56
+Epoch: 266, Steps: 112 | Train Loss: 0.1379
+Epoch: 267 training cost time: 9.59
+Epoch: 267, Steps: 112 | Train Loss: 0.1455
+Epoch 00267: reducing learning rate of group 0 to 1.4580e-03.
+Epoch: 268 training cost time: 9.56
+Epoch: 268, Steps: 112 | Train Loss: 0.1299
+Epoch: 269 training cost time: 9.55
+Epoch: 269, Steps: 112 | Train Loss: 0.1340
+Epoch: 270 training cost time: 9.57
+Epoch: 270, eval cost time: 57.28 | Train Loss: 0.14
+| Vali MAE (mean): 3.43 RMES (mean): 5.99 MAPE (mean): 0.09
+| Vali MAE (median): 3.37 RMES (median): 6.02 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.58 RMES (mean): 6.24 MAPE (mean): 0.10
+| Test MAE (median): 3.52 RMES (median): 6.27 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 2 out of 100
+Epoch: 271 training cost time: 9.92
+Epoch: 271, Steps: 112 | Train Loss: 0.1482
+Epoch: 272 training cost time: 9.19
+Epoch: 272, Steps: 112 | Train Loss: 0.1357
+Epoch: 273 training cost time: 9.16
+Epoch: 273, Steps: 112 | Train Loss: 0.1304
+Epoch: 274 training cost time: 9.18
+Epoch: 274, Steps: 112 | Train Loss: 0.1343
+Epoch: 275 training cost time: 9.20
+Epoch: 275, eval cost time: 55.34 | Train Loss: 0.14
+| Vali MAE (mean): 3.48 RMES (mean): 6.08 MAPE (mean): 0.09
+| Vali MAE (median): 3.45 RMES (median): 6.13 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.59 RMES (mean): 6.28 MAPE (mean): 0.10
+| Test MAE (median): 3.57 RMES (median): 6.33 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 3 out of 100
+Epoch: 276 training cost time: 9.21
+Epoch: 276, Steps: 112 | Train Loss: 0.1424
+Epoch: 277 training cost time: 9.20
+Epoch: 277, Steps: 112 | Train Loss: 0.1341
+Epoch: 278 training cost time: 9.20
+Epoch: 278, Steps: 112 | Train Loss: 0.1371
+Epoch: 279 training cost time: 9.15
+Epoch: 279, Steps: 112 | Train Loss: 0.1393
+Epoch: 280 training cost time: 9.09
+Epoch: 280, eval cost time: 55.26 | Train Loss: 0.13
+| Vali MAE (mean): 3.52 RMES (mean): 6.16 MAPE (mean): 0.08
+| Vali MAE (median): 3.45 RMES (median): 6.17 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.69 RMES (mean): 6.47 MAPE (mean): 0.09
+| Test MAE (median): 3.61 RMES (median): 6.49 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 4 out of 100
+Epoch: 281 training cost time: 9.31
+Epoch: 281, Steps: 112 | Train Loss: 0.1374
+Epoch: 282 training cost time: 9.14
+Epoch: 282, Steps: 112 | Train Loss: 0.1384
+Epoch: 283 training cost time: 9.11
+Epoch: 283, Steps: 112 | Train Loss: 0.1351
+Epoch: 284 training cost time: 9.14
+Epoch: 284, Steps: 112 | Train Loss: 0.1401
+Epoch 00284: reducing learning rate of group 0 to 1.4580e-03.
+Epoch: 285 training cost time: 9.10
+Epoch: 285, eval cost time: 55.06 | Train Loss: 0.14
+| Vali MAE (mean): 3.43 RMES (mean): 6.17 MAPE (mean): 0.08
+| Vali MAE (median): 3.39 RMES (median): 6.23 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.52 RMES (mean): 6.31 MAPE (mean): 0.09
+| Test MAE (median): 3.48 RMES (median): 6.37 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 5 out of 100
+Epoch: 286 training cost time: 9.80
+Epoch: 286, Steps: 112 | Train Loss: 0.1386
+Epoch: 287 training cost time: 9.72
+Epoch: 287, Steps: 112 | Train Loss: 0.1420
+Epoch: 288 training cost time: 10.05
+Epoch: 288, Steps: 112 | Train Loss: 0.1402
+Epoch: 289 training cost time: 9.22
+Epoch: 289, Steps: 112 | Train Loss: 0.1340
+Epoch: 290 training cost time: 9.92
+Epoch: 290, eval cost time: 56.78 | Train Loss: 0.14
+| Vali MAE (mean): 3.46 RMES (mean): 6.09 MAPE (mean): 0.08
+| Vali MAE (median): 3.40 RMES (median): 6.10 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.58 RMES (mean): 6.29 MAPE (mean): 0.09
+| Test MAE (median): 3.50 RMES (median): 6.30 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 6 out of 100
+Epoch: 291 training cost time: 9.32
+Epoch: 291, Steps: 112 | Train Loss: 0.1444
+Epoch: 292 training cost time: 9.72
+Epoch: 292, Steps: 112 | Train Loss: 0.1418
+Epoch: 293 training cost time: 9.41
+Epoch: 293, Steps: 112 | Train Loss: 0.1400
+Epoch: 294 training cost time: 9.31
+Epoch: 294, Steps: 112 | Train Loss: 0.1358
+Epoch: 295 training cost time: 9.42
+Epoch: 295, eval cost time: 57.86 | Train Loss: 0.14
+| Vali MAE (mean): 3.67 RMES (mean): 6.49 MAPE (mean): 0.09
+| Vali MAE (median): 3.60 RMES (median): 6.55 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.81 RMES (mean): 6.80 MAPE (mean): 0.09
+| Test MAE (median): 3.73 RMES (median): 6.84 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 7 out of 100
+Epoch: 296 training cost time: 9.43
+Epoch: 296, Steps: 112 | Train Loss: 0.1440
+Epoch: 297 training cost time: 9.28
+Epoch: 297, Steps: 112 | Train Loss: 0.1455
+Epoch: 298 training cost time: 9.36
+Epoch: 298, Steps: 112 | Train Loss: 0.1449
+Epoch: 299 training cost time: 9.39
+Epoch: 299, Steps: 112 | Train Loss: 0.1379
+Epoch: 300 training cost time: 9.41
+Epoch: 300, eval cost time: 55.99 | Train Loss: 0.14
+| Vali MAE (mean): 3.39 RMES (mean): 6.04 MAPE (mean): 0.08
+| Vali MAE (median): 3.37 RMES (median): 6.13 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.50 RMES (mean): 6.26 MAPE (mean): 0.09
+| Test MAE (median): 3.46 RMES (median): 6.34 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 8 out of 100
+Epoch: 301 training cost time: 9.50
+Epoch: 301, Steps: 112 | Train Loss: 0.1494
+Epoch: 302 training cost time: 9.38
+Epoch: 302, Steps: 112 | Train Loss: 0.1303
+Epoch: 303 training cost time: 9.39
+Epoch: 303, Steps: 112 | Train Loss: 0.1381
+Epoch: 304 training cost time: 9.31
+Epoch: 304, Steps: 112 | Train Loss: 0.1433
+Epoch: 305 training cost time: 9.35
+Epoch: 305, eval cost time: 55.83 | Train Loss: 0.14
+| Vali MAE (mean): 3.43 RMES (mean): 6.10 MAPE (mean): 0.08
+| Vali MAE (median): 3.38 RMES (median): 6.14 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.62 RMES (mean): 6.50 MAPE (mean): 0.09
+| Test MAE (median): 3.57 RMES (median): 6.56 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 9 out of 100
+Epoch: 306 training cost time: 9.28
+Epoch: 306, Steps: 112 | Train Loss: 0.1384
+Epoch: 307 training cost time: 9.36
+Epoch: 307, Steps: 112 | Train Loss: 0.1381
+Epoch: 308 training cost time: 9.38
+Epoch: 308, Steps: 112 | Train Loss: 0.1372
+Epoch: 309 training cost time: 9.60
+Epoch: 309, Steps: 112 | Train Loss: 0.1412
+Epoch: 310 training cost time: 9.85
+Epoch: 310, eval cost time: 56.45 | Train Loss: 0.13
+| Vali MAE (mean): 3.37 RMES (mean): 6.03 MAPE (mean): 0.08
+| Vali MAE (median): 3.32 RMES (median): 6.07 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.50 RMES (mean): 6.28 MAPE (mean): 0.09
+| Test MAE (median): 3.44 RMES (median): 6.32 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.046283 --> 0.045502).  Saving model ...
+Epoch: 311 training cost time: 9.40
+Epoch: 311, Steps: 112 | Train Loss: 0.1379
+Epoch: 312 training cost time: 9.41
+Epoch: 312, Steps: 112 | Train Loss: 0.1348
+Epoch: 313 training cost time: 9.31
+Epoch: 313, Steps: 112 | Train Loss: 0.1388
+Epoch: 314 training cost time: 9.29
+Epoch: 314, Steps: 112 | Train Loss: 0.1366
+Epoch: 315 training cost time: 9.34
+Epoch: 315, eval cost time: 56.07 | Train Loss: 0.14
+| Vali MAE (mean): 3.51 RMES (mean): 6.30 MAPE (mean): 0.09
+| Vali MAE (median): 3.47 RMES (median): 6.34 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.60 RMES (mean): 6.45 MAPE (mean): 0.09
+| Test MAE (median): 3.55 RMES (median): 6.51 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 1 out of 100
+Epoch: 316 training cost time: 9.34
+Epoch: 316, Steps: 112 | Train Loss: 0.1371
+Epoch: 317 training cost time: 9.42
+Epoch: 317, Steps: 112 | Train Loss: 0.1278
+Epoch: 318 training cost time: 9.37
+Epoch: 318, Steps: 112 | Train Loss: 0.1385
+Epoch: 319 training cost time: 9.38
+Epoch: 319, Steps: 112 | Train Loss: 0.1402
+Epoch: 320 training cost time: 9.29
+Epoch: 320, eval cost time: 65.42 | Train Loss: 0.14
+| Vali MAE (mean): 3.43 RMES (mean): 6.09 MAPE (mean): 0.08
+| Vali MAE (median): 3.37 RMES (median): 6.11 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.62 RMES (mean): 6.45 MAPE (mean): 0.09
+| Test MAE (median): 3.55 RMES (median): 6.47 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 2 out of 100
+Epoch: 321 training cost time: 9.26
+Epoch: 321, Steps: 112 | Train Loss: 0.1397
+Epoch: 322 training cost time: 9.33
+Epoch: 322, Steps: 112 | Train Loss: 0.1478
+Epoch: 323 training cost time: 9.38
+Epoch: 323, Steps: 112 | Train Loss: 0.1378
+Epoch: 324 training cost time: 9.37
+Epoch: 324, Steps: 112 | Train Loss: 0.1264
+Epoch: 325 training cost time: 9.32
+Epoch: 325, eval cost time: 55.89 | Train Loss: 0.14
+| Vali MAE (mean): 3.45 RMES (mean): 6.12 MAPE (mean): 0.09
+| Vali MAE (median): 3.41 RMES (median): 6.17 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.56 RMES (mean): 6.31 MAPE (mean): 0.10
+| Test MAE (median): 3.51 RMES (median): 6.37 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 3 out of 100
+Epoch: 326 training cost time: 9.40
+Epoch: 326, Steps: 112 | Train Loss: 0.1346
+Epoch: 327 training cost time: 9.95
+Epoch: 327, Steps: 112 | Train Loss: 0.1406
+Epoch: 328 training cost time: 10.37
+Epoch: 328, Steps: 112 | Train Loss: 0.1439
+Epoch: 329 training cost time: 10.49
+Epoch: 329, Steps: 112 | Train Loss: 0.1447
+Epoch: 330 training cost time: 10.53
+Epoch: 330, eval cost time: 66.37 | Train Loss: 0.13
+| Vali MAE (mean): 3.47 RMES (mean): 6.14 MAPE (mean): 0.08
+| Vali MAE (median): 3.41 RMES (median): 6.16 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.63 RMES (mean): 6.43 MAPE (mean): 0.09
+| Test MAE (median): 3.57 RMES (median): 6.47 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 4 out of 100
+Epoch: 331 training cost time: 10.90
+Epoch: 331, Steps: 112 | Train Loss: 0.1336
+Epoch: 332 training cost time: 11.03
+Epoch: 332, Steps: 112 | Train Loss: 0.1378
+Epoch: 333 training cost time: 10.99
+Epoch: 333, Steps: 112 | Train Loss: 0.1536
+Epoch: 334 training cost time: 11.34
+Epoch: 334, Steps: 112 | Train Loss: 0.1394
+Epoch: 335 training cost time: 11.14
+Epoch: 335, eval cost time: 67.71 | Train Loss: 0.14
+| Vali MAE (mean): 3.50 RMES (mean): 6.21 MAPE (mean): 0.08
+| Vali MAE (median): 3.41 RMES (median): 6.19 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.66 RMES (mean): 6.50 MAPE (mean): 0.09
+| Test MAE (median): 3.57 RMES (median): 6.51 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 5 out of 100
+Epoch 00335: reducing learning rate of group 0 to 1.3122e-03.
+Epoch: 336 training cost time: 10.53
+Epoch: 336, Steps: 112 | Train Loss: 0.1393
+Epoch: 337 training cost time: 11.67
+Epoch: 337, Steps: 112 | Train Loss: 0.1445
+Epoch: 338 training cost time: 11.21
+Epoch: 338, Steps: 112 | Train Loss: 0.1405
+Epoch: 339 training cost time: 11.14
+Epoch: 339, Steps: 112 | Train Loss: 0.1356
+Epoch: 340 training cost time: 11.35
+Epoch: 340, eval cost time: 70.58 | Train Loss: 0.13
+| Vali MAE (mean): 3.45 RMES (mean): 6.03 MAPE (mean): 0.08
+| Vali MAE (median): 3.37 RMES (median): 6.03 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.62 RMES (mean): 6.38 MAPE (mean): 0.09
+| Test MAE (median): 3.55 RMES (median): 6.43 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 6 out of 100
+Epoch: 341 training cost time: 10.81
+Epoch: 341, Steps: 112 | Train Loss: 0.1261
+Epoch: 342 training cost time: 11.12
+Epoch: 342, Steps: 112 | Train Loss: 0.1436
+Epoch: 343 training cost time: 10.86
+Epoch: 343, Steps: 112 | Train Loss: 0.1410
+Epoch: 344 training cost time: 10.88
+Epoch: 344, Steps: 112 | Train Loss: 0.1417
+Epoch: 345 training cost time: 10.81
+Epoch: 345, eval cost time: 65.33 | Train Loss: 0.14
+| Vali MAE (mean): 3.35 RMES (mean): 5.98 MAPE (mean): 0.08
+| Vali MAE (median): 3.30 RMES (median): 6.00 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.52 RMES (mean): 6.30 MAPE (mean): 0.09
+| Test MAE (median): 3.47 RMES (median): 6.35 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.045502 --> 0.045451).  Saving model ...
+Epoch: 346 training cost time: 10.86
+Epoch: 346, Steps: 112 | Train Loss: 0.1475
+Epoch: 347 training cost time: 10.97
+Epoch: 347, Steps: 112 | Train Loss: 0.1395
+Epoch: 348 training cost time: 10.84
+Epoch: 348, Steps: 112 | Train Loss: 0.1382
+Epoch: 349 training cost time: 10.84
+Epoch: 349, Steps: 112 | Train Loss: 0.1325
+Epoch: 350 training cost time: 10.87
+Epoch: 350, eval cost time: 62.14 | Train Loss: 0.13
+| Vali MAE (mean): 3.43 RMES (mean): 6.08 MAPE (mean): 0.08
+| Vali MAE (median): 3.36 RMES (median): 6.11 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.56 RMES (mean): 6.37 MAPE (mean): 0.09
+| Test MAE (median): 3.50 RMES (median): 6.44 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 1 out of 100
+Epoch: 351 training cost time: 9.48
+Epoch: 351, Steps: 112 | Train Loss: 0.1413
+Epoch: 352 training cost time: 9.63
+Epoch: 352, Steps: 112 | Train Loss: 0.1350
+Epoch: 353 training cost time: 9.70
+Epoch: 353, Steps: 112 | Train Loss: 0.1274
+Epoch: 354 training cost time: 9.74
+Epoch: 354, Steps: 112 | Train Loss: 0.1393
+Epoch: 355 training cost time: 9.82
+Epoch: 355, eval cost time: 67.71 | Train Loss: 0.14
+| Vali MAE (mean): 3.38 RMES (mean): 5.94 MAPE (mean): 0.08
+| Vali MAE (median): 3.34 RMES (median): 5.99 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.54 RMES (mean): 6.23 MAPE (mean): 0.09
+| Test MAE (median): 3.48 RMES (median): 6.25 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 2 out of 100
+Epoch: 356 training cost time: 11.51
+Epoch: 356, Steps: 112 | Train Loss: 0.1395
+Epoch: 357 training cost time: 9.68
+Epoch: 357, Steps: 112 | Train Loss: 0.1438
+Epoch: 358 training cost time: 9.77
+Epoch: 358, Steps: 112 | Train Loss: 0.1373
+Epoch: 359 training cost time: 9.80
+Epoch: 359, Steps: 112 | Train Loss: 0.1415
+Epoch: 360 training cost time: 9.70
+Epoch: 360, eval cost time: 58.11 | Train Loss: 0.13
+| Vali MAE (mean): 3.45 RMES (mean): 6.05 MAPE (mean): 0.08
+| Vali MAE (median): 3.37 RMES (median): 6.08 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.59 RMES (mean): 6.29 MAPE (mean): 0.09
+| Test MAE (median): 3.51 RMES (median): 6.33 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 3 out of 100
+Epoch: 361 training cost time: 10.09
+Epoch: 361, Steps: 112 | Train Loss: 0.1435
+Epoch: 362 training cost time: 10.05
+Epoch: 362, Steps: 112 | Train Loss: 0.1298
+Epoch: 363 training cost time: 9.66
+Epoch: 363, Steps: 112 | Train Loss: 0.1330
+Epoch: 364 training cost time: 9.44
+Epoch: 364, Steps: 112 | Train Loss: 0.1326
+Epoch: 365 training cost time: 10.43
+Epoch: 365, eval cost time: 68.63 | Train Loss: 0.14
+| Vali MAE (mean): 3.57 RMES (mean): 6.36 MAPE (mean): 0.08
+| Vali MAE (median): 3.48 RMES (median): 6.36 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.72 RMES (mean): 6.60 MAPE (mean): 0.09
+| Test MAE (median): 3.62 RMES (median): 6.62 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 4 out of 100
+Epoch: 366 training cost time: 10.89
+Epoch: 366, Steps: 112 | Train Loss: 0.1414
+Epoch: 367 training cost time: 10.86
+Epoch: 367, Steps: 112 | Train Loss: 0.1390
+Epoch: 368 training cost time: 10.80
+Epoch: 368, Steps: 112 | Train Loss: 0.1352
+Epoch: 369 training cost time: 10.83
+Epoch: 369, Steps: 112 | Train Loss: 0.1366
+Epoch: 370 training cost time: 10.81
+Epoch: 370, eval cost time: 67.36 | Train Loss: 0.14
+| Vali MAE (mean): 3.34 RMES (mean): 6.02 MAPE (mean): 0.09
+| Vali MAE (median): 3.31 RMES (median): 6.07 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.45 RMES (mean): 6.22 MAPE (mean): 0.10
+| Test MAE (median): 3.44 RMES (median): 6.32 MAPE (median): 0.10 
+| CRPS (Test): 0.05
+EarlyStopping counter: 5 out of 100
+Epoch: 371 training cost time: 10.87
+Epoch: 371, Steps: 112 | Train Loss: 0.1380
+Epoch: 372 training cost time: 10.88
+Epoch: 372, Steps: 112 | Train Loss: 0.1368
+Epoch: 373 training cost time: 10.82
+Epoch: 373, Steps: 112 | Train Loss: 0.1364
+Epoch: 374 training cost time: 10.87
+Epoch: 374, Steps: 112 | Train Loss: 0.1426
+Epoch: 375 training cost time: 10.97
+Epoch: 375, eval cost time: 66.12 | Train Loss: 0.14
+| Vali MAE (mean): 3.31 RMES (mean): 5.98 MAPE (mean): 0.08
+| Vali MAE (median): 3.29 RMES (median): 6.03 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.46 RMES (mean): 6.27 MAPE (mean): 0.09
+| Test MAE (median): 3.44 RMES (median): 6.38 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 6 out of 100
+Epoch: 376 training cost time: 10.87
+Epoch: 376, Steps: 112 | Train Loss: 0.1417
+Epoch: 377 training cost time: 10.98
+Epoch: 377, Steps: 112 | Train Loss: 0.1421
+Epoch: 378 training cost time: 11.40
+Epoch: 378, Steps: 112 | Train Loss: 0.1372
+Epoch: 379 training cost time: 11.45
+Epoch: 379, Steps: 112 | Train Loss: 0.1441
+Epoch: 380 training cost time: 10.54
+Epoch: 380, eval cost time: 60.63 | Train Loss: 0.14
+| Vali MAE (mean): 3.27 RMES (mean): 5.82 MAPE (mean): 0.08
+| Vali MAE (median): 3.21 RMES (median): 5.85 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.41 RMES (mean): 6.09 MAPE (mean): 0.09
+| Test MAE (median): 3.37 RMES (median): 6.17 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.045451 --> 0.044501).  Saving model ...
+Epoch: 381 training cost time: 10.10
+Epoch: 381, Steps: 112 | Train Loss: 0.1285
+Epoch: 382 training cost time: 10.33
+Epoch: 382, Steps: 112 | Train Loss: 0.1426
+Epoch: 383 training cost time: 9.48
+Epoch: 383, Steps: 112 | Train Loss: 0.1387
+Epoch: 384 training cost time: 9.37
+Epoch: 384, Steps: 112 | Train Loss: 0.1445
+Epoch: 385 training cost time: 9.24
+Epoch: 385, eval cost time: 58.09 | Train Loss: 0.14
+| Vali MAE (mean): 3.32 RMES (mean): 5.94 MAPE (mean): 0.08
+| Vali MAE (median): 3.28 RMES (median): 5.99 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.46 RMES (mean): 6.17 MAPE (mean): 0.09
+| Test MAE (median): 3.41 RMES (median): 6.21 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 1 out of 100
+Epoch: 386 training cost time: 9.70
+Epoch: 386, Steps: 112 | Train Loss: 0.1467
+Epoch: 387 training cost time: 9.69
+Epoch: 387, Steps: 112 | Train Loss: 0.1429
+Epoch: 388 training cost time: 9.52
+Epoch: 388, Steps: 112 | Train Loss: 0.1354
+Epoch: 389 training cost time: 9.49
+Epoch: 389, Steps: 112 | Train Loss: 0.1405
+Epoch: 390 training cost time: 9.39
+Epoch: 390, eval cost time: 58.20 | Train Loss: 0.14
+| Vali MAE (mean): 3.30 RMES (mean): 5.89 MAPE (mean): 0.08
+| Vali MAE (median): 3.27 RMES (median): 5.96 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.46 RMES (mean): 6.19 MAPE (mean): 0.09
+| Test MAE (median): 3.43 RMES (median): 6.25 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 2 out of 100
+Epoch: 391 training cost time: 9.46
+Epoch: 391, Steps: 112 | Train Loss: 0.1379
+Epoch: 392 training cost time: 9.42
+Epoch: 392, Steps: 112 | Train Loss: 0.1408
+Epoch 00392: reducing learning rate of group 0 to 1.3122e-03.
+Epoch 00392: reducing learning rate of group 0 to 1.1810e-03.
+Epoch: 393 training cost time: 9.53
+Epoch: 393, Steps: 112 | Train Loss: 0.1333
+Epoch: 394 training cost time: 9.52
+Epoch: 394, Steps: 112 | Train Loss: 0.1396
+Epoch: 395 training cost time: 9.56
+Epoch: 395, eval cost time: 58.56 | Train Loss: 0.13
+| Vali MAE (mean): 3.29 RMES (mean): 5.89 MAPE (mean): 0.08
+| Vali MAE (median): 3.26 RMES (median): 5.93 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.43 RMES (mean): 6.09 MAPE (mean): 0.09
+| Test MAE (median): 3.40 RMES (median): 6.17 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 3 out of 100
+Epoch: 396 training cost time: 11.37
+Epoch: 396, Steps: 112 | Train Loss: 0.1335
+Epoch: 397 training cost time: 11.40
+Epoch: 397, Steps: 112 | Train Loss: 0.1308
+Epoch: 398 training cost time: 12.20
+Epoch: 398, Steps: 112 | Train Loss: 0.1444
+Epoch: 399 training cost time: 10.99
+Epoch: 399, Steps: 112 | Train Loss: 0.1380
+Epoch: 400 training cost time: 10.90
+Epoch: 400, eval cost time: 65.94 | Train Loss: 0.14
+| Vali MAE (mean): 3.46 RMES (mean): 6.07 MAPE (mean): 0.08
+| Vali MAE (median): 3.39 RMES (median): 6.11 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.63 RMES (mean): 6.37 MAPE (mean): 0.09
+| Test MAE (median): 3.55 RMES (median): 6.39 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 4 out of 100
+Epoch: 401 training cost time: 10.85
+Epoch: 401, Steps: 112 | Train Loss: 0.1331
+Epoch: 402 training cost time: 10.86
+Epoch: 402, Steps: 112 | Train Loss: 0.1340
+Epoch: 403 training cost time: 10.87
+Epoch: 403, Steps: 112 | Train Loss: 0.1347
+Epoch: 404 training cost time: 10.88
+Epoch: 404, Steps: 112 | Train Loss: 0.1446
+Epoch: 405 training cost time: 10.89
+Epoch: 405, eval cost time: 67.02 | Train Loss: 0.14
+| Vali MAE (mean): 3.32 RMES (mean): 5.99 MAPE (mean): 0.09
+| Vali MAE (median): 3.30 RMES (median): 6.08 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.44 RMES (mean): 6.21 MAPE (mean): 0.09
+| Test MAE (median): 3.42 RMES (median): 6.31 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 5 out of 100
+Epoch: 406 training cost time: 10.81
+Epoch: 406, Steps: 112 | Train Loss: 0.1456
+Epoch: 407 training cost time: 10.81
+Epoch: 407, Steps: 112 | Train Loss: 0.1432
+Epoch: 408 training cost time: 10.86
+Epoch: 408, Steps: 112 | Train Loss: 0.1429
+Epoch: 409 training cost time: 10.89
+Epoch: 409, Steps: 112 | Train Loss: 0.1373
+Epoch: 410 training cost time: 10.81
+Epoch: 410, eval cost time: 65.23 | Train Loss: 0.13
+| Vali MAE (mean): 3.40 RMES (mean): 6.06 MAPE (mean): 0.09
+| Vali MAE (median): 3.37 RMES (median): 6.11 MAPE (median): 0.09 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.51 RMES (mean): 6.21 MAPE (mean): 0.10
+| Test MAE (median): 3.47 RMES (median): 6.26 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 6 out of 100
+Epoch: 411 training cost time: 10.80
+Epoch: 411, Steps: 112 | Train Loss: 0.1339
+Epoch: 412 training cost time: 10.85
+Epoch: 412, Steps: 112 | Train Loss: 0.1321
+Epoch: 413 training cost time: 10.82
+Epoch: 413, Steps: 112 | Train Loss: 0.1349
+Epoch: 414 training cost time: 10.91
+Epoch: 414, Steps: 112 | Train Loss: 0.1507
+Epoch: 415 training cost time: 11.02
+Epoch: 415, eval cost time: 61.57 | Train Loss: 0.14
+| Vali MAE (mean): 3.39 RMES (mean): 5.97 MAPE (mean): 0.08
+| Vali MAE (median): 3.34 RMES (median): 6.04 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.53 RMES (mean): 6.22 MAPE (mean): 0.09
+| Test MAE (median): 3.47 RMES (median): 6.27 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 7 out of 100
+Epoch: 416 training cost time: 10.12
+Epoch: 416, Steps: 112 | Train Loss: 0.1254
+Epoch: 417 training cost time: 10.83
+Epoch: 417, Steps: 112 | Train Loss: 0.1394
+Epoch: 418 training cost time: 10.86
+Epoch: 418, Steps: 112 | Train Loss: 0.1429
+Epoch: 419 training cost time: 10.81
+Epoch: 419, Steps: 112 | Train Loss: 0.1401
+Epoch: 420 training cost time: 10.75
+Epoch: 420, eval cost time: 64.43 | Train Loss: 0.13
+| Vali MAE (mean): 3.43 RMES (mean): 6.01 MAPE (mean): 0.08
+| Vali MAE (median): 3.36 RMES (median): 6.06 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.59 RMES (mean): 6.35 MAPE (mean): 0.09
+| Test MAE (median): 3.52 RMES (median): 6.42 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 8 out of 100
+Epoch: 421 training cost time: 10.54
+Epoch: 421, Steps: 112 | Train Loss: 0.1316
+Epoch: 422 training cost time: 10.55
+Epoch: 422, Steps: 112 | Train Loss: 0.1315
+Epoch: 423 training cost time: 10.47
+Epoch: 423, Steps: 112 | Train Loss: 0.1360
+Epoch: 424 training cost time: 10.51
+Epoch: 424, Steps: 112 | Train Loss: 0.1300
+Epoch: 425 training cost time: 10.50
+Epoch: 425, eval cost time: 62.84 | Train Loss: 0.15
+| Vali MAE (mean): 3.25 RMES (mean): 5.76 MAPE (mean): 0.08
+| Vali MAE (median): 3.20 RMES (median): 5.84 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.45 RMES (mean): 6.13 MAPE (mean): 0.09
+| Test MAE (median): 3.38 RMES (median): 6.18 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+Validation CRPS decreased (0.044501 --> 0.043995).  Saving model ...
+Epoch: 426 training cost time: 10.76
+Epoch: 426, Steps: 112 | Train Loss: 0.1350
+Epoch: 427 training cost time: 10.45
+Epoch: 427, Steps: 112 | Train Loss: 0.1398
+Epoch: 428 training cost time: 10.42
+Epoch: 428, Steps: 112 | Train Loss: 0.1425
+Epoch: 429 training cost time: 10.91
+Epoch: 429, Steps: 112 | Train Loss: 0.1354
+Epoch: 430 training cost time: 10.62
+Epoch: 430, eval cost time: 63.80 | Train Loss: 0.14
+| Vali MAE (mean): 3.40 RMES (mean): 6.03 MAPE (mean): 0.08
+| Vali MAE (median): 3.35 RMES (median): 6.08 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.58 RMES (mean): 6.41 MAPE (mean): 0.09
+| Test MAE (median): 3.53 RMES (median): 6.47 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 1 out of 100
+Epoch: 431 training cost time: 10.54
+Epoch: 431, Steps: 112 | Train Loss: 0.1425
+Epoch: 432 training cost time: 10.58
+Epoch: 432, Steps: 112 | Train Loss: 0.1383
+Epoch: 433 training cost time: 10.48
+Epoch: 433, Steps: 112 | Train Loss: 0.1251
+Epoch: 434 training cost time: 10.51
+Epoch: 434, Steps: 112 | Train Loss: 0.1348
+Epoch: 435 training cost time: 10.51
+Epoch: 435, eval cost time: 63.73 | Train Loss: 0.14
+| Vali MAE (mean): 3.29 RMES (mean): 5.80 MAPE (mean): 0.08
+| Vali MAE (median): 3.24 RMES (median): 5.83 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.44 RMES (mean): 6.10 MAPE (mean): 0.09
+| Test MAE (median): 3.41 RMES (median): 6.19 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 2 out of 100
+Epoch: 436 training cost time: 10.61
+Epoch: 436, Steps: 112 | Train Loss: 0.1330
+Epoch: 437 training cost time: 10.60
+Epoch: 437, Steps: 112 | Train Loss: 0.1270
+Epoch: 438 training cost time: 10.49
+Epoch: 438, Steps: 112 | Train Loss: 0.1267
+Epoch: 439 training cost time: 10.52
+Epoch: 439, Steps: 112 | Train Loss: 0.1337
+Epoch: 440 training cost time: 10.47
+Epoch: 440, eval cost time: 61.93 | Train Loss: 0.14
+| Vali MAE (mean): 3.34 RMES (mean): 5.86 MAPE (mean): 0.08
+| Vali MAE (median): 3.29 RMES (median): 5.91 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.51 RMES (mean): 6.17 MAPE (mean): 0.09
+| Test MAE (median): 3.45 RMES (median): 6.22 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 3 out of 100
+Epoch: 441 training cost time: 10.36
+Epoch: 441, Steps: 112 | Train Loss: 0.1410
+Epoch: 442 training cost time: 10.70
+Epoch: 442, Steps: 112 | Train Loss: 0.1376
+Epoch: 443 training cost time: 11.59
+Epoch: 443, Steps: 112 | Train Loss: 0.1417
+Epoch: 444 training cost time: 10.81
+Epoch: 444, Steps: 112 | Train Loss: 0.1275
+Epoch: 445 training cost time: 10.85
+Epoch: 445, eval cost time: 64.72 | Train Loss: 0.14
+| Vali MAE (mean): 3.35 RMES (mean): 5.98 MAPE (mean): 0.08
+| Vali MAE (median): 3.31 RMES (median): 6.02 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.50 RMES (mean): 6.20 MAPE (mean): 0.09
+| Test MAE (median): 3.46 RMES (median): 6.27 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 4 out of 100
+Epoch: 446 training cost time: 11.63
+Epoch: 446, Steps: 112 | Train Loss: 0.1412
+Epoch: 447 training cost time: 12.33
+Epoch: 447, Steps: 112 | Train Loss: 0.1413
+Epoch: 448 training cost time: 11.12
+Epoch: 448, Steps: 112 | Train Loss: 0.1422
+Epoch: 449 training cost time: 10.58
+Epoch: 449, Steps: 112 | Train Loss: 0.1347
+Epoch: 450 training cost time: 10.60
+Epoch: 450, eval cost time: 65.87 | Train Loss: 0.14
+| Vali MAE (mean): 3.31 RMES (mean): 5.93 MAPE (mean): 0.08
+| Vali MAE (median): 3.25 RMES (median): 6.01 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.49 RMES (mean): 6.24 MAPE (mean): 0.09
+| Test MAE (median): 3.43 RMES (median): 6.32 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 5 out of 100
+Epoch: 451 training cost time: 10.93
+Epoch: 451, Steps: 112 | Train Loss: 0.1360
+Epoch: 452 training cost time: 10.59
+Epoch: 452, Steps: 112 | Train Loss: 0.1373
+Epoch: 453 training cost time: 10.58
+Epoch: 453, Steps: 112 | Train Loss: 0.1349
+Epoch: 454 training cost time: 10.58
+Epoch: 454, Steps: 112 | Train Loss: 0.1414
+Epoch: 455 training cost time: 10.61
+Epoch: 455, eval cost time: 63.77 | Train Loss: 0.13
+| Vali MAE (mean): 3.26 RMES (mean): 5.81 MAPE (mean): 0.08
+| Vali MAE (median): 3.21 RMES (median): 5.82 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.43 RMES (mean): 6.14 MAPE (mean): 0.09
+| Test MAE (median): 3.40 RMES (median): 6.24 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 6 out of 100
+Epoch: 456 training cost time: 10.60
+Epoch: 456, Steps: 112 | Train Loss: 0.1404
+Epoch: 457 training cost time: 10.59
+Epoch: 457, Steps: 112 | Train Loss: 0.1390
+Epoch: 458 training cost time: 10.58
+Epoch: 458, Steps: 112 | Train Loss: 0.1332
+Epoch: 459 training cost time: 10.61
+Epoch: 459, Steps: 112 | Train Loss: 0.1362
+Epoch: 460 training cost time: 11.90
+Epoch: 460, eval cost time: 74.52 | Train Loss: 0.14
+| Vali MAE (mean): 3.36 RMES (mean): 6.00 MAPE (mean): 0.08
+| Vali MAE (median): 3.30 RMES (median): 6.08 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.56 RMES (mean): 6.33 MAPE (mean): 0.09
+| Test MAE (median): 3.49 RMES (median): 6.39 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 7 out of 100
+Epoch: 461 training cost time: 12.21
+Epoch: 461, Steps: 112 | Train Loss: 0.1350
+Epoch: 462 training cost time: 12.24
+Epoch: 462, Steps: 112 | Train Loss: 0.1401
+Epoch: 463 training cost time: 12.23
+Epoch: 463, Steps: 112 | Train Loss: 0.1338
+Epoch: 464 training cost time: 12.25
+Epoch: 464, Steps: 112 | Train Loss: 0.1422
+Epoch: 465 training cost time: 12.27
+Epoch: 465, eval cost time: 63.88 | Train Loss: 0.14
+| Vali MAE (mean): 3.47 RMES (mean): 5.99 MAPE (mean): 0.08
+| Vali MAE (median): 3.36 RMES (median): 5.97 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.62 RMES (mean): 6.30 MAPE (mean): 0.09
+| Test MAE (median): 3.53 RMES (median): 6.32 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 8 out of 100
+Epoch: 466 training cost time: 9.75
+Epoch: 466, Steps: 112 | Train Loss: 0.1429
+Epoch: 467 training cost time: 9.89
+Epoch: 467, Steps: 112 | Train Loss: 0.1385
+Epoch 00467: reducing learning rate of group 0 to 1.0629e-03.
+Epoch: 468 training cost time: 9.31
+Epoch: 468, Steps: 112 | Train Loss: 0.1400
+Epoch: 469 training cost time: 9.28
+Epoch: 469, Steps: 112 | Train Loss: 0.1406
+Epoch: 470 training cost time: 9.75
+Epoch: 470, eval cost time: 58.88 | Train Loss: 0.13
+| Vali MAE (mean): 3.27 RMES (mean): 5.85 MAPE (mean): 0.08
+| Vali MAE (median): 3.23 RMES (median): 5.95 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.44 RMES (mean): 6.12 MAPE (mean): 0.09
+| Test MAE (median): 3.40 RMES (median): 6.19 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 9 out of 100
+Epoch: 471 training cost time: 10.24
+Epoch: 471, Steps: 112 | Train Loss: 0.1358
+Epoch: 472 training cost time: 10.27
+Epoch: 472, Steps: 112 | Train Loss: 0.1310
+Epoch: 473 training cost time: 9.42
+Epoch: 473, Steps: 112 | Train Loss: 0.1338
+Epoch: 474 training cost time: 9.93
+Epoch: 474, Steps: 112 | Train Loss: 0.1392
+Epoch: 475 training cost time: 9.41
+Epoch: 475, eval cost time: 57.54 | Train Loss: 0.13
+| Vali MAE (mean): 3.31 RMES (mean): 5.90 MAPE (mean): 0.08
+| Vali MAE (median): 3.26 RMES (median): 5.97 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.44 RMES (mean): 6.09 MAPE (mean): 0.09
+| Test MAE (median): 3.38 RMES (median): 6.13 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 10 out of 100
+Epoch: 476 training cost time: 9.45
+Epoch: 476, Steps: 112 | Train Loss: 0.1345
+Epoch: 477 training cost time: 10.06
+Epoch: 477, Steps: 112 | Train Loss: 0.1359
+Epoch: 478 training cost time: 10.41
+Epoch: 478, Steps: 112 | Train Loss: 0.1329
+Epoch: 479 training cost time: 9.87
+Epoch: 479, Steps: 112 | Train Loss: 0.1448
+Epoch: 480 training cost time: 9.60
+Epoch: 480, eval cost time: 59.89 | Train Loss: 0.14
+| Vali MAE (mean): 3.33 RMES (mean): 6.01 MAPE (mean): 0.08
+| Vali MAE (median): 3.29 RMES (median): 6.11 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.46 RMES (mean): 6.19 MAPE (mean): 0.08
+| Test MAE (median): 3.40 RMES (median): 6.22 MAPE (median): 0.08 
+| CRPS (Test): 0.05
+EarlyStopping counter: 11 out of 100
+Epoch: 481 training cost time: 10.38
+Epoch: 481, Steps: 112 | Train Loss: 0.1365
+Epoch: 482 training cost time: 9.57
+Epoch: 482, Steps: 112 | Train Loss: 0.1294
+Epoch: 483 training cost time: 10.46
+Epoch: 483, Steps: 112 | Train Loss: 0.1334
+Epoch: 484 training cost time: 10.34
+Epoch: 484, Steps: 112 | Train Loss: 0.1403
+Epoch 00484: reducing learning rate of group 0 to 1.1810e-03.
+Epoch: 485 training cost time: 9.19
+Epoch: 485, eval cost time: 56.90 | Train Loss: 0.14
+| Vali MAE (mean): 3.57 RMES (mean): 6.35 MAPE (mean): 0.08
+| Vali MAE (median): 3.48 RMES (median): 6.38 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.73 RMES (mean): 6.58 MAPE (mean): 0.09
+| Test MAE (median): 3.65 RMES (median): 6.62 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 12 out of 100
+Epoch: 486 training cost time: 9.38
+Epoch: 486, Steps: 112 | Train Loss: 0.1327
+Epoch: 487 training cost time: 9.48
+Epoch: 487, Steps: 112 | Train Loss: 0.1394
+Epoch: 488 training cost time: 9.37
+Epoch: 488, Steps: 112 | Train Loss: 0.1317
+Epoch: 489 training cost time: 9.21
+Epoch: 489, Steps: 112 | Train Loss: 0.1340
+Epoch: 490 training cost time: 9.23
+Epoch: 490, eval cost time: 56.93 | Train Loss: 0.15
+| Vali MAE (mean): 3.38 RMES (mean): 5.89 MAPE (mean): 0.08
+| Vali MAE (median): 3.31 RMES (median): 5.93 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.53 RMES (mean): 6.15 MAPE (mean): 0.09
+| Test MAE (median): 3.43 RMES (median): 6.15 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 13 out of 100
+Epoch: 491 training cost time: 10.40
+Epoch: 491, Steps: 112 | Train Loss: 0.1402
+Epoch: 492 training cost time: 10.40
+Epoch: 492, Steps: 112 | Train Loss: 0.1443
+Epoch: 493 training cost time: 9.30
+Epoch: 493, Steps: 112 | Train Loss: 0.1318
+Epoch: 494 training cost time: 9.81
+Epoch: 494, Steps: 112 | Train Loss: 0.1316
+Epoch: 495 training cost time: 9.92
+Epoch: 495, eval cost time: 57.86 | Train Loss: 0.14
+| Vali MAE (mean): 3.47 RMES (mean): 6.00 MAPE (mean): 0.08
+| Vali MAE (median): 3.37 RMES (median): 6.00 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.52 RMES (mean): 6.14 MAPE (mean): 0.09
+| Test MAE (median): 3.43 RMES (median): 6.16 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 14 out of 100
+Epoch: 496 training cost time: 10.60
+Epoch: 496, Steps: 112 | Train Loss: 0.1416
+Epoch: 497 training cost time: 9.73
+Epoch: 497, Steps: 112 | Train Loss: 0.1384
+Epoch: 498 training cost time: 9.64
+Epoch: 498, Steps: 112 | Train Loss: 0.1278
+Epoch: 499 training cost time: 9.29
+Epoch: 499, Steps: 112 | Train Loss: 0.1360
+Epoch: 500 training cost time: 9.09
+Epoch: 500, eval cost time: 55.87 | Train Loss: 0.13
+| Vali MAE (mean): 3.40 RMES (mean): 5.96 MAPE (mean): 0.08
+| Vali MAE (median): 3.32 RMES (median): 6.00 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.52 RMES (mean): 6.23 MAPE (mean): 0.09
+| Test MAE (median): 3.46 RMES (median): 6.29 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 15 out of 100
+Epoch: 501 training cost time: 9.43
+Epoch: 501, Steps: 112 | Train Loss: 0.1429
+Epoch: 502 training cost time: 9.24
+Epoch: 502, Steps: 112 | Train Loss: 0.1374
+Epoch: 503 training cost time: 10.25
+Epoch: 503, Steps: 112 | Train Loss: 0.1325
+Epoch: 504 training cost time: 9.44
+Epoch: 504, Steps: 112 | Train Loss: 0.1361
+Epoch: 505 training cost time: 8.87
+Epoch: 505, eval cost time: 54.43 | Train Loss: 0.13
+| Vali MAE (mean): 3.31 RMES (mean): 5.85 MAPE (mean): 0.08
+| Vali MAE (median): 3.24 RMES (median): 5.88 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.45 RMES (mean): 6.09 MAPE (mean): 0.09
+| Test MAE (median): 3.37 RMES (median): 6.13 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 16 out of 100
+Epoch: 506 training cost time: 9.13
+Epoch: 506, Steps: 112 | Train Loss: 0.1321
+Epoch: 507 training cost time: 8.88
+Epoch: 507, Steps: 112 | Train Loss: 0.1307
+Epoch: 508 training cost time: 8.86
+Epoch: 508, Steps: 112 | Train Loss: 0.1414
+Epoch: 509 training cost time: 8.88
+Epoch: 509, Steps: 112 | Train Loss: 0.1281
+Epoch: 510 training cost time: 8.90
+Epoch: 510, eval cost time: 54.99 | Train Loss: 0.14
+| Vali MAE (mean): 3.25 RMES (mean): 5.79 MAPE (mean): 0.08
+| Vali MAE (median): 3.21 RMES (median): 5.84 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.40 RMES (mean): 6.04 MAPE (mean): 0.09
+| Test MAE (median): 3.35 RMES (median): 6.12 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 17 out of 100
+Epoch: 511 training cost time: 8.96
+Epoch: 511, Steps: 112 | Train Loss: 0.1413
+Epoch: 512 training cost time: 8.87
+Epoch: 512, Steps: 112 | Train Loss: 0.1395
+Epoch: 513 training cost time: 9.36
+Epoch: 513, Steps: 112 | Train Loss: 0.1398
+Epoch: 514 training cost time: 9.07
+Epoch: 514, Steps: 112 | Train Loss: 0.1367
+Epoch: 515 training cost time: 9.16
+Epoch: 515, eval cost time: 54.66 | Train Loss: 0.14
+| Vali MAE (mean): 3.36 RMES (mean): 5.89 MAPE (mean): 0.08
+| Vali MAE (median): 3.30 RMES (median): 5.93 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.48 RMES (mean): 6.11 MAPE (mean): 0.09
+| Test MAE (median): 3.42 RMES (median): 6.17 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 18 out of 100
+Epoch: 516 training cost time: 9.12
+Epoch: 516, Steps: 112 | Train Loss: 0.1319
+Epoch: 517 training cost time: 8.93
+Epoch: 517, Steps: 112 | Train Loss: 0.1349
+Epoch: 518 training cost time: 8.92
+Epoch: 518, Steps: 112 | Train Loss: 0.1298
+Epoch: 519 training cost time: 8.99
+Epoch: 519, Steps: 112 | Train Loss: 0.1360
+Epoch: 520 training cost time: 8.91
+Epoch: 520, eval cost time: 54.80 | Train Loss: 0.14
+| Vali MAE (mean): 3.30 RMES (mean): 6.05 MAPE (mean): 0.08
+| Vali MAE (median): 3.31 RMES (median): 6.18 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.42 RMES (mean): 6.26 MAPE (mean): 0.09
+| Test MAE (median): 3.43 RMES (median): 6.37 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 19 out of 100
+Epoch: 521 training cost time: 9.70
+Epoch: 521, Steps: 112 | Train Loss: 0.1344
+Epoch: 522 training cost time: 9.86
+Epoch: 522, Steps: 112 | Train Loss: 0.1389
+Epoch: 523 training cost time: 10.09
+Epoch: 523, Steps: 112 | Train Loss: 0.1349
+Epoch: 524 training cost time: 9.36
+Epoch: 524, Steps: 112 | Train Loss: 0.1368
+Epoch: 525 training cost time: 9.05
+Epoch: 525, eval cost time: 54.34 | Train Loss: 0.13
+| Vali MAE (mean): 3.28 RMES (mean): 5.82 MAPE (mean): 0.08
+| Vali MAE (median): 3.22 RMES (median): 5.88 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.41 RMES (mean): 6.07 MAPE (mean): 0.09
+| Test MAE (median): 3.34 RMES (median): 6.13 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 20 out of 100
+Epoch: 526 training cost time: 9.09
+Epoch: 526, Steps: 112 | Train Loss: 0.1254
+Epoch: 527 training cost time: 8.87
+Epoch: 527, Steps: 112 | Train Loss: 0.1325
+Epoch: 528 training cost time: 8.87
+Epoch: 528, Steps: 112 | Train Loss: 0.1364
+Epoch: 529 training cost time: 8.85
+Epoch: 529, Steps: 112 | Train Loss: 0.1376
+Epoch: 530 training cost time: 8.86
+Epoch: 530, eval cost time: 54.15 | Train Loss: 0.13
+| Vali MAE (mean): 3.42 RMES (mean): 5.98 MAPE (mean): 0.08
+| Vali MAE (median): 3.34 RMES (median): 6.01 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.55 RMES (mean): 6.25 MAPE (mean): 0.09
+| Test MAE (median): 3.48 RMES (median): 6.31 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 21 out of 100
+Epoch: 531 training cost time: 9.00
+Epoch: 531, Steps: 112 | Train Loss: 0.1341
+Epoch: 532 training cost time: 8.86
+Epoch: 532, Steps: 112 | Train Loss: 0.1353
+Epoch: 533 training cost time: 8.87
+Epoch: 533, Steps: 112 | Train Loss: 0.1351
+Epoch: 534 training cost time: 8.88
+Epoch: 534, Steps: 112 | Train Loss: 0.1376
+Epoch: 535 training cost time: 8.86
+Epoch: 535, eval cost time: 54.60 | Train Loss: 0.14
+| Vali MAE (mean): 3.28 RMES (mean): 5.89 MAPE (mean): 0.08
+| Vali MAE (median): 3.25 RMES (median): 5.92 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.40 RMES (mean): 6.05 MAPE (mean): 0.08
+| Test MAE (median): 3.36 RMES (median): 6.11 MAPE (median): 0.08 
+| CRPS (Test): 0.05
+EarlyStopping counter: 22 out of 100
+Epoch 00535: reducing learning rate of group 0 to 1.0629e-03.
+Epoch: 536 training cost time: 9.98
+Epoch: 536, Steps: 112 | Train Loss: 0.1255
+Epoch: 537 training cost time: 9.03
+Epoch: 537, Steps: 112 | Train Loss: 0.1303
+Epoch: 538 training cost time: 9.30
+Epoch: 538, Steps: 112 | Train Loss: 0.1254
+Epoch: 539 training cost time: 9.20
+Epoch: 539, Steps: 112 | Train Loss: 0.1298
+Epoch: 540 training cost time: 9.24
+Epoch: 540, eval cost time: 56.34 | Train Loss: 0.14
+| Vali MAE (mean): 3.47 RMES (mean): 6.20 MAPE (mean): 0.08
+| Vali MAE (median): 3.38 RMES (median): 6.31 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.61 RMES (mean): 6.39 MAPE (mean): 0.09
+| Test MAE (median): 3.51 RMES (median): 6.43 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 23 out of 100
+Epoch: 541 training cost time: 9.68
+Epoch: 541, Steps: 112 | Train Loss: 0.1294
+Epoch: 542 training cost time: 10.06
+Epoch: 542, Steps: 112 | Train Loss: 0.1391
+Epoch: 543 training cost time: 9.81
+Epoch: 543, Steps: 112 | Train Loss: 0.1480
+Epoch: 544 training cost time: 10.01
+Epoch: 544, Steps: 112 | Train Loss: 0.1298
+Epoch: 545 training cost time: 10.21
+Epoch: 545, eval cost time: 57.38 | Train Loss: 0.14
+| Vali MAE (mean): 3.23 RMES (mean): 5.86 MAPE (mean): 0.08
+| Vali MAE (median): 3.21 RMES (median): 5.97 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.36 RMES (mean): 6.05 MAPE (mean): 0.09
+| Test MAE (median): 3.34 RMES (median): 6.17 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 24 out of 100
+Epoch: 546 training cost time: 9.20
+Epoch: 546, Steps: 112 | Train Loss: 0.1362
+Epoch: 547 training cost time: 10.90
+Epoch: 547, Steps: 112 | Train Loss: 0.1270
+Epoch: 548 training cost time: 9.73
+Epoch: 548, Steps: 112 | Train Loss: 0.1385
+Epoch: 549 training cost time: 9.16
+Epoch: 549, Steps: 112 | Train Loss: 0.1372
+Epoch: 550 training cost time: 9.63
+Epoch: 550, eval cost time: 57.17 | Train Loss: 0.15
+| Vali MAE (mean): 3.38 RMES (mean): 5.97 MAPE (mean): 0.08
+| Vali MAE (median): 3.32 RMES (median): 6.05 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.54 RMES (mean): 6.26 MAPE (mean): 0.09
+| Test MAE (median): 3.47 RMES (median): 6.33 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 25 out of 100
+Epoch: 551 training cost time: 9.59
+Epoch: 551, Steps: 112 | Train Loss: 0.1360
+Epoch 00551: reducing learning rate of group 0 to 9.5659e-04.
+Epoch: 552 training cost time: 9.65
+Epoch: 552, Steps: 112 | Train Loss: 0.1309
+Epoch: 553 training cost time: 10.03
+Epoch: 553, Steps: 112 | Train Loss: 0.1451
+Epoch: 554 training cost time: 9.64
+Epoch: 554, Steps: 112 | Train Loss: 0.1351
+Epoch: 555 training cost time: 10.07
+Epoch: 555, eval cost time: 59.97 | Train Loss: 0.14
+| Vali MAE (mean): 3.28 RMES (mean): 5.94 MAPE (mean): 0.08
+| Vali MAE (median): 3.23 RMES (median): 6.00 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.39 RMES (mean): 6.05 MAPE (mean): 0.09
+| Test MAE (median): 3.34 RMES (median): 6.12 MAPE (median): 0.08 
+| CRPS (Test): 0.05
+EarlyStopping counter: 26 out of 100
+Epoch: 556 training cost time: 9.36
+Epoch: 556, Steps: 112 | Train Loss: 0.1321
+Epoch: 557 training cost time: 9.26
+Epoch: 557, Steps: 112 | Train Loss: 0.1369
+Epoch: 558 training cost time: 9.38
+Epoch: 558, Steps: 112 | Train Loss: 0.1361
+Epoch: 559 training cost time: 10.29
+Epoch: 559, Steps: 112 | Train Loss: 0.1353
+Epoch: 560 training cost time: 10.21
+Epoch: 560, eval cost time: 56.98 | Train Loss: 0.14
+| Vali MAE (mean): 3.27 RMES (mean): 5.96 MAPE (mean): 0.08
+| Vali MAE (median): 3.26 RMES (median): 6.08 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.43 RMES (mean): 6.24 MAPE (mean): 0.09
+| Test MAE (median): 3.41 RMES (median): 6.35 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 27 out of 100
+Epoch: 561 training cost time: 9.82
+Epoch: 561, Steps: 112 | Train Loss: 0.1400
+Epoch: 562 training cost time: 9.74
+Epoch: 562, Steps: 112 | Train Loss: 0.1367
+Epoch: 563 training cost time: 9.46
+Epoch: 563, Steps: 112 | Train Loss: 0.1399
+Epoch: 564 training cost time: 9.14
+Epoch: 564, Steps: 112 | Train Loss: 0.1327
+Epoch: 565 training cost time: 9.23
+Epoch: 565, eval cost time: 59.99 | Train Loss: 0.14
+| Vali MAE (mean): 3.35 RMES (mean): 5.96 MAPE (mean): 0.08
+| Vali MAE (median): 3.30 RMES (median): 6.03 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.46 RMES (mean): 6.19 MAPE (mean): 0.09
+| Test MAE (median): 3.41 RMES (median): 6.29 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 28 out of 100
+Epoch: 566 training cost time: 10.41
+Epoch: 566, Steps: 112 | Train Loss: 0.1348
+Epoch: 567 training cost time: 9.81
+Epoch: 567, Steps: 112 | Train Loss: 0.1360
+Epoch: 568 training cost time: 10.36
+Epoch: 568, Steps: 112 | Train Loss: 0.1406
+Epoch: 569 training cost time: 10.82
+Epoch: 569, Steps: 112 | Train Loss: 0.1385
+Epoch: 570 training cost time: 9.95
+Epoch: 570, eval cost time: 57.32 | Train Loss: 0.13
+| Vali MAE (mean): 3.48 RMES (mean): 6.14 MAPE (mean): 0.08
+| Vali MAE (median): 3.36 RMES (median): 6.13 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.62 RMES (mean): 6.33 MAPE (mean): 0.09
+| Test MAE (median): 3.50 RMES (median): 6.35 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 29 out of 100
+Epoch: 571 training cost time: 9.72
+Epoch: 571, Steps: 112 | Train Loss: 0.1356
+Epoch: 572 training cost time: 9.40
+Epoch: 572, Steps: 112 | Train Loss: 0.1262
+Epoch: 573 training cost time: 9.46
+Epoch: 573, Steps: 112 | Train Loss: 0.1263
+Epoch: 574 training cost time: 9.70
+Epoch: 574, Steps: 112 | Train Loss: 0.1337
+Epoch: 575 training cost time: 9.95
+Epoch: 575, eval cost time: 57.55 | Train Loss: 0.14
+| Vali MAE (mean): 3.30 RMES (mean): 5.94 MAPE (mean): 0.08
+| Vali MAE (median): 3.27 RMES (median): 6.03 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.42 RMES (mean): 6.12 MAPE (mean): 0.09
+| Test MAE (median): 3.38 RMES (median): 6.21 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 30 out of 100
+Epoch: 576 training cost time: 10.11
+Epoch: 576, Steps: 112 | Train Loss: 0.1261
+Epoch: 577 training cost time: 9.81
+Epoch: 577, Steps: 112 | Train Loss: 0.1330
+Epoch: 578 training cost time: 9.77
+Epoch: 578, Steps: 112 | Train Loss: 0.1339
+Epoch: 579 training cost time: 9.86
+Epoch: 579, Steps: 112 | Train Loss: 0.1321
+Epoch: 580 training cost time: 9.32
+Epoch: 580, eval cost time: 57.07 | Train Loss: 0.14
+| Vali MAE (mean): 3.30 RMES (mean): 5.90 MAPE (mean): 0.08
+| Vali MAE (median): 3.26 RMES (median): 5.97 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.44 RMES (mean): 6.10 MAPE (mean): 0.09
+| Test MAE (median): 3.39 RMES (median): 6.15 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 31 out of 100
+Epoch: 581 training cost time: 10.22
+Epoch: 581, Steps: 112 | Train Loss: 0.1241
+Epoch: 582 training cost time: 9.98
+Epoch: 582, Steps: 112 | Train Loss: 0.1381
+Epoch: 583 training cost time: 9.37
+Epoch: 583, Steps: 112 | Train Loss: 0.1473
+Epoch: 584 training cost time: 9.33
+Epoch: 584, Steps: 112 | Train Loss: 0.1350
+Epoch: 585 training cost time: 10.49
+Epoch: 585, eval cost time: 60.15 | Train Loss: 0.14
+| Vali MAE (mean): 3.32 RMES (mean): 5.85 MAPE (mean): 0.08
+| Vali MAE (median): 3.26 RMES (median): 5.89 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.44 RMES (mean): 6.04 MAPE (mean): 0.09
+| Test MAE (median): 3.37 RMES (median): 6.07 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 32 out of 100
+Epoch: 586 training cost time: 9.46
+Epoch: 586, Steps: 112 | Train Loss: 0.1297
+Epoch: 587 training cost time: 9.52
+Epoch: 587, Steps: 112 | Train Loss: 0.1306
+Epoch: 588 training cost time: 11.01
+Epoch: 588, Steps: 112 | Train Loss: 0.1305
+Epoch: 589 training cost time: 11.49
+Epoch: 589, Steps: 112 | Train Loss: 0.1443
+Epoch: 590 training cost time: 11.35
+Epoch: 590, eval cost time: 69.29 | Train Loss: 0.13
+| Vali MAE (mean): 3.57 RMES (mean): 6.25 MAPE (mean): 0.08
+| Vali MAE (median): 3.46 RMES (median): 6.25 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.70 RMES (mean): 6.43 MAPE (mean): 0.09
+| Test MAE (median): 3.58 RMES (median): 6.45 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 33 out of 100
+Epoch: 591 training cost time: 11.37
+Epoch: 591, Steps: 112 | Train Loss: 0.1432
+Epoch: 592 training cost time: 11.49
+Epoch: 592, Steps: 112 | Train Loss: 0.1294
+Epoch: 593 training cost time: 11.31
+Epoch: 593, Steps: 112 | Train Loss: 0.1376
+Epoch: 594 training cost time: 11.31
+Epoch: 594, Steps: 112 | Train Loss: 0.1292
+Epoch: 595 training cost time: 11.34
+Epoch: 595, eval cost time: 63.44 | Train Loss: 0.13
+| Vali MAE (mean): 3.30 RMES (mean): 5.85 MAPE (mean): 0.08
+| Vali MAE (median): 3.25 RMES (median): 5.94 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.43 RMES (mean): 6.08 MAPE (mean): 0.09
+| Test MAE (median): 3.37 RMES (median): 6.16 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 34 out of 100
+Epoch: 596 training cost time: 9.63
+Epoch: 596, Steps: 112 | Train Loss: 0.1398
+Epoch: 597 training cost time: 10.51
+Epoch: 597, Steps: 112 | Train Loss: 0.1327
+Epoch: 598 training cost time: 9.67
+Epoch: 598, Steps: 112 | Train Loss: 0.1335
+Epoch: 599 training cost time: 9.39
+Epoch: 599, Steps: 112 | Train Loss: 0.1373
+Epoch: 600 training cost time: 9.53
+Epoch: 600, eval cost time: 59.04 | Train Loss: 0.13
+| Vali MAE (mean): 3.39 RMES (mean): 6.08 MAPE (mean): 0.08
+| Vali MAE (median): 3.35 RMES (median): 6.16 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.48 RMES (mean): 6.23 MAPE (mean): 0.09
+| Test MAE (median): 3.43 RMES (median): 6.30 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 35 out of 100
+Epoch: 601 training cost time: 9.70
+Epoch: 601, Steps: 112 | Train Loss: 0.1413
+Epoch: 602 training cost time: 9.43
+Epoch: 602, Steps: 112 | Train Loss: 0.1370
+Epoch 00602: reducing learning rate of group 0 to 8.6093e-04.
+Epoch: 603 training cost time: 9.43
+Epoch: 603, Steps: 112 | Train Loss: 0.1382
+Epoch: 604 training cost time: 9.57
+Epoch: 604, Steps: 112 | Train Loss: 0.1325
+Epoch: 605 training cost time: 9.43
+Epoch: 605, eval cost time: 55.91 | Train Loss: 0.13
+| Vali MAE (mean): 3.36 RMES (mean): 5.93 MAPE (mean): 0.08
+| Vali MAE (median): 3.29 RMES (median): 5.94 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.52 RMES (mean): 6.17 MAPE (mean): 0.09
+| Test MAE (median): 3.44 RMES (median): 6.20 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 36 out of 100
+Epoch: 606 training cost time: 9.49
+Epoch: 606, Steps: 112 | Train Loss: 0.1351
+Epoch: 607 training cost time: 9.76
+Epoch: 607, Steps: 112 | Train Loss: 0.1304
+Epoch: 608 training cost time: 9.66
+Epoch: 608, Steps: 112 | Train Loss: 0.1293
+Epoch: 609 training cost time: 9.46
+Epoch: 609, Steps: 112 | Train Loss: 0.1291
+Epoch: 610 training cost time: 9.62
+Epoch: 610, eval cost time: 59.31 | Train Loss: 0.15
+| Vali MAE (mean): 3.51 RMES (mean): 6.30 MAPE (mean): 0.08
+| Vali MAE (median): 3.43 RMES (median): 6.38 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.62 RMES (mean): 6.40 MAPE (mean): 0.09
+| Test MAE (median): 3.53 RMES (median): 6.43 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 37 out of 100
+Epoch: 611 training cost time: 9.32
+Epoch: 611, Steps: 112 | Train Loss: 0.1340
+Epoch: 612 training cost time: 9.26
+Epoch: 612, Steps: 112 | Train Loss: 0.1389
+Epoch: 613 training cost time: 10.03
+Epoch: 613, Steps: 112 | Train Loss: 0.1360
+Epoch: 614 training cost time: 9.66
+Epoch: 614, Steps: 112 | Train Loss: 0.1422
+Epoch: 615 training cost time: 9.51
+Epoch: 615, eval cost time: 56.90 | Train Loss: 0.14
+| Vali MAE (mean): 3.33 RMES (mean): 6.02 MAPE (mean): 0.08
+| Vali MAE (median): 3.30 RMES (median): 6.15 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.39 RMES (mean): 6.11 MAPE (mean): 0.09
+| Test MAE (median): 3.34 RMES (median): 6.17 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 38 out of 100
+Epoch: 616 training cost time: 9.66
+Epoch: 616, Steps: 112 | Train Loss: 0.1366
+Epoch: 617 training cost time: 10.04
+Epoch: 617, Steps: 112 | Train Loss: 0.1307
+Epoch: 618 training cost time: 9.92
+Epoch: 618, Steps: 112 | Train Loss: 0.1371
+Epoch: 619 training cost time: 9.53
+Epoch: 619, Steps: 112 | Train Loss: 0.1373
+Epoch: 620 training cost time: 9.62
+Epoch: 620, eval cost time: 57.72 | Train Loss: 0.14
+| Vali MAE (mean): 3.41 RMES (mean): 6.03 MAPE (mean): 0.08
+| Vali MAE (median): 3.33 RMES (median): 6.06 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.53 RMES (mean): 6.20 MAPE (mean): 0.09
+| Test MAE (median): 3.45 RMES (median): 6.24 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 39 out of 100
+Epoch: 621 training cost time: 9.65
+Epoch: 621, Steps: 112 | Train Loss: 0.1276
+Epoch: 622 training cost time: 9.32
+Epoch: 622, Steps: 112 | Train Loss: 0.1427
+Epoch: 623 training cost time: 9.42
+Epoch: 623, Steps: 112 | Train Loss: 0.1430
+Epoch: 624 training cost time: 9.29
+Epoch: 624, Steps: 112 | Train Loss: 0.1384
+Epoch: 625 training cost time: 9.36
+Epoch: 625, eval cost time: 57.02 | Train Loss: 0.15
+| Vali MAE (mean): 3.30 RMES (mean): 5.97 MAPE (mean): 0.08
+| Vali MAE (median): 3.26 RMES (median): 6.05 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.40 RMES (mean): 6.10 MAPE (mean): 0.09
+| Test MAE (median): 3.35 RMES (median): 6.17 MAPE (median): 0.08 
+| CRPS (Test): 0.05
+EarlyStopping counter: 40 out of 100
+Epoch: 626 training cost time: 9.33
+Epoch: 626, Steps: 112 | Train Loss: 0.1297
+Epoch: 627 training cost time: 9.22
+Epoch: 627, Steps: 112 | Train Loss: 0.1393
+Epoch: 628 training cost time: 9.38
+Epoch: 628, Steps: 112 | Train Loss: 0.1338
+Epoch: 629 training cost time: 9.31
+Epoch: 629, Steps: 112 | Train Loss: 0.1317
+Epoch: 630 training cost time: 9.44
+Epoch: 630, eval cost time: 56.42 | Train Loss: 0.14
+| Vali MAE (mean): 3.32 RMES (mean): 5.96 MAPE (mean): 0.08
+| Vali MAE (median): 3.29 RMES (median): 6.05 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.43 RMES (mean): 6.12 MAPE (mean): 0.09
+| Test MAE (median): 3.40 RMES (median): 6.21 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 41 out of 100
+Epoch: 631 training cost time: 9.39
+Epoch: 631, Steps: 112 | Train Loss: 0.1310
+Epoch: 632 training cost time: 9.27
+Epoch: 632, Steps: 112 | Train Loss: 0.1378
+Epoch 00632: reducing learning rate of group 0 to 9.5659e-04.
+Epoch: 633 training cost time: 10.06
+Epoch: 633, Steps: 112 | Train Loss: 0.1373
+Epoch: 634 training cost time: 10.59
+Epoch: 634, Steps: 112 | Train Loss: 0.1342
+Epoch: 635 training cost time: 10.16
+Epoch: 635, eval cost time: 60.09 | Train Loss: 0.13
+| Vali MAE (mean): 3.28 RMES (mean): 5.97 MAPE (mean): 0.08
+| Vali MAE (median): 3.26 RMES (median): 6.08 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.38 RMES (mean): 6.11 MAPE (mean): 0.09
+| Test MAE (median): 3.35 RMES (median): 6.20 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 42 out of 100
+Epoch: 636 training cost time: 9.66
+Epoch: 636, Steps: 112 | Train Loss: 0.1338
+Epoch: 637 training cost time: 10.08
+Epoch: 637, Steps: 112 | Train Loss: 0.1233
+Epoch: 638 training cost time: 9.78
+Epoch: 638, Steps: 112 | Train Loss: 0.1267
+Epoch: 639 training cost time: 10.14
+Epoch: 639, Steps: 112 | Train Loss: 0.1350
+Epoch: 640 training cost time: 9.31
+Epoch: 640, eval cost time: 56.47 | Train Loss: 0.13
+| Vali MAE (mean): 3.31 RMES (mean): 5.89 MAPE (mean): 0.08
+| Vali MAE (median): 3.28 RMES (median): 5.96 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.46 RMES (mean): 6.09 MAPE (mean): 0.09
+| Test MAE (median): 3.40 RMES (median): 6.15 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 43 out of 100
+Epoch: 641 training cost time: 9.30
+Epoch: 641, Steps: 112 | Train Loss: 0.1426
+Epoch: 642 training cost time: 9.32
+Epoch: 642, Steps: 112 | Train Loss: 0.1343
+Epoch: 643 training cost time: 9.50
+Epoch: 643, Steps: 112 | Train Loss: 0.1396
+Epoch: 644 training cost time: 9.33
+Epoch: 644, Steps: 112 | Train Loss: 0.1332
+Epoch: 645 training cost time: 9.41
+Epoch: 645, eval cost time: 56.62 | Train Loss: 0.13
+| Vali MAE (mean): 3.32 RMES (mean): 5.97 MAPE (mean): 0.08
+| Vali MAE (median): 3.30 RMES (median): 6.06 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.41 RMES (mean): 6.10 MAPE (mean): 0.09
+| Test MAE (median): 3.36 RMES (median): 6.14 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 44 out of 100
+Epoch: 646 training cost time: 9.37
+Epoch: 646, Steps: 112 | Train Loss: 0.1301
+Epoch: 647 training cost time: 9.48
+Epoch: 647, Steps: 112 | Train Loss: 0.1328
+Epoch: 648 training cost time: 9.37
+Epoch: 648, Steps: 112 | Train Loss: 0.1358
+Epoch: 649 training cost time: 9.42
+Epoch: 649, Steps: 112 | Train Loss: 0.1367
+Epoch: 650 training cost time: 9.38
+Epoch: 650, eval cost time: 55.67 | Train Loss: 0.13
+| Vali MAE (mean): 3.35 RMES (mean): 5.98 MAPE (mean): 0.08
+| Vali MAE (median): 3.28 RMES (median): 6.02 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.49 RMES (mean): 6.20 MAPE (mean): 0.09
+| Test MAE (median): 3.41 RMES (median): 6.24 MAPE (median): 0.08 
+| CRPS (Test): 0.05
+EarlyStopping counter: 45 out of 100
+Epoch: 651 training cost time: 9.36
+Epoch: 651, Steps: 112 | Train Loss: 0.1313
+Epoch: 652 training cost time: 9.30
+Epoch: 652, Steps: 112 | Train Loss: 0.1291
+Epoch: 653 training cost time: 9.27
+Epoch: 653, Steps: 112 | Train Loss: 0.1383
+Epoch 00653: reducing learning rate of group 0 to 7.7484e-04.
+Epoch: 654 training cost time: 9.31
+Epoch: 654, Steps: 112 | Train Loss: 0.1344
+Epoch: 655 training cost time: 9.36
+Epoch: 655, eval cost time: 55.79 | Train Loss: 0.14
+| Vali MAE (mean): 3.49 RMES (mean): 6.10 MAPE (mean): 0.08
+| Vali MAE (median): 3.39 RMES (median): 6.12 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.60 RMES (mean): 6.28 MAPE (mean): 0.09
+| Test MAE (median): 3.49 RMES (median): 6.31 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 46 out of 100
+Epoch: 656 training cost time: 9.68
+Epoch: 656, Steps: 112 | Train Loss: 0.1303
+Epoch: 657 training cost time: 9.43
+Epoch: 657, Steps: 112 | Train Loss: 0.1402
+Epoch: 658 training cost time: 10.14
+Epoch: 658, Steps: 112 | Train Loss: 0.1343
+Epoch: 659 training cost time: 10.12
+Epoch: 659, Steps: 112 | Train Loss: 0.1379
+Epoch: 660 training cost time: 9.56
+Epoch: 660, eval cost time: 55.84 | Train Loss: 0.13
+| Vali MAE (mean): 3.25 RMES (mean): 5.92 MAPE (mean): 0.08
+| Vali MAE (median): 3.24 RMES (median): 6.04 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.36 RMES (mean): 6.06 MAPE (mean): 0.09
+| Test MAE (median): 3.33 RMES (median): 6.15 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 47 out of 100
+Epoch: 661 training cost time: 9.27
+Epoch: 661, Steps: 112 | Train Loss: 0.1354
+Epoch: 662 training cost time: 9.24
+Epoch: 662, Steps: 112 | Train Loss: 0.1338
+Epoch: 663 training cost time: 9.48
+Epoch: 663, Steps: 112 | Train Loss: 0.1335
+Epoch: 664 training cost time: 9.21
+Epoch: 664, Steps: 112 | Train Loss: 0.1343
+Epoch: 665 training cost time: 9.31
+Epoch: 665, eval cost time: 55.97 | Train Loss: 0.15
+| Vali MAE (mean): 3.37 RMES (mean): 5.97 MAPE (mean): 0.08
+| Vali MAE (median): 3.27 RMES (median): 6.00 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.49 RMES (mean): 6.11 MAPE (mean): 0.09
+| Test MAE (median): 3.39 RMES (median): 6.15 MAPE (median): 0.08 
+| CRPS (Test): 0.05
+EarlyStopping counter: 48 out of 100
+Epoch: 666 training cost time: 9.58
+Epoch: 666, Steps: 112 | Train Loss: 0.1411
+Epoch: 667 training cost time: 9.35
+Epoch: 667, Steps: 112 | Train Loss: 0.1294
+Epoch: 668 training cost time: 9.16
+Epoch: 668, Steps: 112 | Train Loss: 0.1338
+Epoch: 669 training cost time: 9.20
+Epoch: 669, Steps: 112 | Train Loss: 0.1305
+Epoch: 670 training cost time: 9.28
+Epoch: 670, eval cost time: 56.03 | Train Loss: 0.14
+| Vali MAE (mean): 3.35 RMES (mean): 6.00 MAPE (mean): 0.08
+| Vali MAE (median): 3.30 RMES (median): 6.07 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.45 RMES (mean): 6.13 MAPE (mean): 0.09
+| Test MAE (median): 3.39 RMES (median): 6.17 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 49 out of 100
+Epoch: 671 training cost time: 9.36
+Epoch: 671, Steps: 112 | Train Loss: 0.1407
+Epoch: 672 training cost time: 9.28
+Epoch: 672, Steps: 112 | Train Loss: 0.1427
+Epoch: 673 training cost time: 9.33
+Epoch: 673, Steps: 112 | Train Loss: 0.1427
+Epoch: 674 training cost time: 9.21
+Epoch: 674, Steps: 112 | Train Loss: 0.1376
+Epoch: 675 training cost time: 9.52
+Epoch: 675, eval cost time: 58.55 | Train Loss: 0.14
+| Vali MAE (mean): 3.27 RMES (mean): 5.84 MAPE (mean): 0.08
+| Vali MAE (median): 3.23 RMES (median): 5.90 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.44 RMES (mean): 6.03 MAPE (mean): 0.09
+| Test MAE (median): 3.38 RMES (median): 6.08 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 50 out of 100
+Epoch: 676 training cost time: 9.92
+Epoch: 676, Steps: 112 | Train Loss: 0.1272
+Epoch: 677 training cost time: 9.86
+Epoch: 677, Steps: 112 | Train Loss: 0.1357
+Epoch: 678 training cost time: 9.73
+Epoch: 678, Steps: 112 | Train Loss: 0.1286
+Epoch: 679 training cost time: 9.86
+Epoch: 679, Steps: 112 | Train Loss: 0.1325
+Epoch: 680 training cost time: 9.59
+Epoch: 680, eval cost time: 60.64 | Train Loss: 0.13
+| Vali MAE (mean): 3.37 RMES (mean): 6.07 MAPE (mean): 0.08
+| Vali MAE (median): 3.32 RMES (median): 6.16 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.47 RMES (mean): 6.26 MAPE (mean): 0.09
+| Test MAE (median): 3.44 RMES (median): 6.38 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 51 out of 100
+Epoch: 681 training cost time: 9.67
+Epoch: 681, Steps: 112 | Train Loss: 0.1344
+Epoch: 682 training cost time: 9.30
+Epoch: 682, Steps: 112 | Train Loss: 0.1338
+Epoch: 683 training cost time: 10.28
+Epoch: 683, Steps: 112 | Train Loss: 0.1399
+Epoch: 684 training cost time: 10.12
+Epoch: 684, Steps: 112 | Train Loss: 0.1265
+Epoch: 685 training cost time: 9.73
+Epoch: 685, eval cost time: 59.49 | Train Loss: 0.13
+| Vali MAE (mean): 3.35 RMES (mean): 5.88 MAPE (mean): 0.08
+| Vali MAE (median): 3.30 RMES (median): 5.95 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.48 RMES (mean): 6.12 MAPE (mean): 0.09
+| Test MAE (median): 3.41 RMES (median): 6.19 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 52 out of 100
+Epoch: 686 training cost time: 9.98
+Epoch: 686, Steps: 112 | Train Loss: 0.1328
+Epoch: 687 training cost time: 9.38
+Epoch: 687, Steps: 112 | Train Loss: 0.1378
+Epoch: 688 training cost time: 10.29
+Epoch: 688, Steps: 112 | Train Loss: 0.1378
+Epoch 00688: reducing learning rate of group 0 to 8.6093e-04.
+Epoch: 689 training cost time: 10.04
+Epoch: 689, Steps: 112 | Train Loss: 0.1392
+Epoch: 690 training cost time: 10.31
+Epoch: 690, eval cost time: 58.89 | Train Loss: 0.14
+| Vali MAE (mean): 3.38 RMES (mean): 6.00 MAPE (mean): 0.08
+| Vali MAE (median): 3.34 RMES (median): 6.05 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.48 RMES (mean): 6.13 MAPE (mean): 0.09
+| Test MAE (median): 3.44 RMES (median): 6.19 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 53 out of 100
+Epoch: 691 training cost time: 9.82
+Epoch: 691, Steps: 112 | Train Loss: 0.1459
+Epoch: 692 training cost time: 9.42
+Epoch: 692, Steps: 112 | Train Loss: 0.1339
+Epoch: 693 training cost time: 9.40
+Epoch: 693, Steps: 112 | Train Loss: 0.1342
+Epoch: 694 training cost time: 9.79
+Epoch: 694, Steps: 112 | Train Loss: 0.1370
+Epoch: 695 training cost time: 9.41
+Epoch: 695, eval cost time: 58.66 | Train Loss: 0.13
+| Vali MAE (mean): 3.33 RMES (mean): 6.00 MAPE (mean): 0.08
+| Vali MAE (median): 3.24 RMES (median): 6.05 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.46 RMES (mean): 6.07 MAPE (mean): 0.08
+| Test MAE (median): 3.36 RMES (median): 6.09 MAPE (median): 0.08 
+| CRPS (Test): 0.05
+EarlyStopping counter: 54 out of 100
+Epoch: 696 training cost time: 9.33
+Epoch: 696, Steps: 112 | Train Loss: 0.1350
+Epoch: 697 training cost time: 9.34
+Epoch: 697, Steps: 112 | Train Loss: 0.1417
+Epoch: 698 training cost time: 9.49
+Epoch: 698, Steps: 112 | Train Loss: 0.1363
+Epoch: 699 training cost time: 10.34
+Epoch: 699, Steps: 112 | Train Loss: 0.1282
+Epoch: 700 training cost time: 9.36
+Epoch: 700, eval cost time: 57.81 | Train Loss: 0.13
+| Vali MAE (mean): 3.25 RMES (mean): 5.95 MAPE (mean): 0.08
+| Vali MAE (median): 3.24 RMES (median): 6.08 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.35 RMES (mean): 6.06 MAPE (mean): 0.09
+| Test MAE (median): 3.33 RMES (median): 6.16 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 55 out of 100
+Epoch: 701 training cost time: 10.06
+Epoch: 701, Steps: 112 | Train Loss: 0.1296
+Epoch: 702 training cost time: 9.70
+Epoch: 702, Steps: 112 | Train Loss: 0.1391
+Epoch: 703 training cost time: 10.39
+Epoch: 703, Steps: 112 | Train Loss: 0.1352
+Epoch: 704 training cost time: 9.59
+Epoch: 704, Steps: 112 | Train Loss: 0.1309
+Epoch 00704: reducing learning rate of group 0 to 6.9736e-04.
+Epoch: 705 training cost time: 9.36
+Epoch: 705, eval cost time: 56.04 | Train Loss: 0.13
+| Vali MAE (mean): 3.31 RMES (mean): 5.98 MAPE (mean): 0.08
+| Vali MAE (median): 3.27 RMES (median): 6.03 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.41 RMES (mean): 6.03 MAPE (mean): 0.09
+| Test MAE (median): 3.36 RMES (median): 6.08 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 56 out of 100
+Epoch: 706 training cost time: 9.40
+Epoch: 706, Steps: 112 | Train Loss: 0.1362
+Epoch: 707 training cost time: 9.36
+Epoch: 707, Steps: 112 | Train Loss: 0.1337
+Epoch: 708 training cost time: 9.32
+Epoch: 708, Steps: 112 | Train Loss: 0.1342
+Epoch: 709 training cost time: 9.33
+Epoch: 709, Steps: 112 | Train Loss: 0.1395
+Epoch: 710 training cost time: 9.34
+Epoch: 710, eval cost time: 58.13 | Train Loss: 0.13
+| Vali MAE (mean): 3.64 RMES (mean): 6.56 MAPE (mean): 0.08
+| Vali MAE (median): 3.54 RMES (median): 6.63 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.74 RMES (mean): 6.53 MAPE (mean): 0.09
+| Test MAE (median): 3.60 RMES (median): 6.53 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 57 out of 100
+Epoch: 711 training cost time: 9.49
+Epoch: 711, Steps: 112 | Train Loss: 0.1275
+Epoch: 712 training cost time: 9.41
+Epoch: 712, Steps: 112 | Train Loss: 0.1384
+Epoch: 713 training cost time: 9.36
+Epoch: 713, Steps: 112 | Train Loss: 0.1323
+Epoch: 714 training cost time: 9.33
+Epoch: 714, Steps: 112 | Train Loss: 0.1347
+Epoch: 715 training cost time: 9.32
+Epoch: 715, eval cost time: 55.61 | Train Loss: 0.13
+| Vali MAE (mean): 3.36 RMES (mean): 6.03 MAPE (mean): 0.08
+| Vali MAE (median): 3.31 RMES (median): 6.10 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.43 RMES (mean): 6.09 MAPE (mean): 0.09
+| Test MAE (median): 3.39 RMES (median): 6.17 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 58 out of 100
+Epoch: 716 training cost time: 9.10
+Epoch: 716, Steps: 112 | Train Loss: 0.1299
+Epoch: 717 training cost time: 8.93
+Epoch: 717, Steps: 112 | Train Loss: 0.1282
+Epoch: 718 training cost time: 9.03
+Epoch: 718, Steps: 112 | Train Loss: 0.1258
+Epoch: 719 training cost time: 8.92
+Epoch: 719, Steps: 112 | Train Loss: 0.1419
+Epoch: 720 training cost time: 8.91
+Epoch: 720, eval cost time: 55.87 | Train Loss: 0.14
+| Vali MAE (mean): 3.45 RMES (mean): 6.25 MAPE (mean): 0.08
+| Vali MAE (median): 3.40 RMES (median): 6.34 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.55 RMES (mean): 6.29 MAPE (mean): 0.09
+| Test MAE (median): 3.50 RMES (median): 6.36 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 59 out of 100
+Epoch: 721 training cost time: 9.58
+Epoch: 721, Steps: 112 | Train Loss: 0.1288
+Epoch: 722 training cost time: 9.19
+Epoch: 722, Steps: 112 | Train Loss: 0.1328
+Epoch: 723 training cost time: 9.20
+Epoch: 723, Steps: 112 | Train Loss: 0.1374
+Epoch: 724 training cost time: 9.15
+Epoch: 724, Steps: 112 | Train Loss: 0.1315
+Epoch: 725 training cost time: 9.19
+Epoch: 725, eval cost time: 56.30 | Train Loss: 0.13
+| Vali MAE (mean): 3.31 RMES (mean): 5.90 MAPE (mean): 0.08
+| Vali MAE (median): 3.28 RMES (median): 5.98 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.43 RMES (mean): 6.08 MAPE (mean): 0.09
+| Test MAE (median): 3.39 RMES (median): 6.16 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 60 out of 100
+Epoch: 726 training cost time: 9.38
+Epoch: 726, Steps: 112 | Train Loss: 0.1360
+Epoch: 727 training cost time: 9.20
+Epoch: 727, Steps: 112 | Train Loss: 0.1359
+Epoch: 728 training cost time: 9.17
+Epoch: 728, Steps: 112 | Train Loss: 0.1397
+Epoch: 729 training cost time: 9.22
+Epoch: 729, Steps: 112 | Train Loss: 0.1352
+Epoch: 730 training cost time: 9.24
+Epoch: 730, eval cost time: 55.03 | Train Loss: 0.13
+| Vali MAE (mean): 3.36 RMES (mean): 5.92 MAPE (mean): 0.08
+| Vali MAE (median): 3.29 RMES (median): 5.98 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.49 RMES (mean): 6.10 MAPE (mean): 0.09
+| Test MAE (median): 3.41 RMES (median): 6.13 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 61 out of 100
+Epoch: 731 training cost time: 9.33
+Epoch: 731, Steps: 112 | Train Loss: 0.1303
+Epoch: 732 training cost time: 9.21
+Epoch: 732, Steps: 112 | Train Loss: 0.1431
+Epoch: 733 training cost time: 9.21
+Epoch: 733, Steps: 112 | Train Loss: 0.1275
+Epoch: 734 training cost time: 9.19
+Epoch: 734, Steps: 112 | Train Loss: 0.1263
+Epoch: 735 training cost time: 9.18
+Epoch: 735, eval cost time: 54.94 | Train Loss: 0.14
+| Vali MAE (mean): 3.35 RMES (mean): 5.91 MAPE (mean): 0.08
+| Vali MAE (median): 3.28 RMES (median): 5.93 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.50 RMES (mean): 6.10 MAPE (mean): 0.09
+| Test MAE (median): 3.41 RMES (median): 6.13 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 62 out of 100
+Epoch: 736 training cost time: 9.40
+Epoch: 736, Steps: 112 | Train Loss: 0.1382
+Epoch: 737 training cost time: 9.16
+Epoch: 737, Steps: 112 | Train Loss: 0.1363
+Epoch: 738 training cost time: 9.15
+Epoch: 738, Steps: 112 | Train Loss: 0.1262
+Epoch: 739 training cost time: 9.16
+Epoch: 739, Steps: 112 | Train Loss: 0.1340
+Epoch 00739: reducing learning rate of group 0 to 7.7484e-04.
+Epoch: 740 training cost time: 9.18
+Epoch: 740, eval cost time: 55.30 | Train Loss: 0.13
+| Vali MAE (mean): 3.26 RMES (mean): 5.90 MAPE (mean): 0.08
+| Vali MAE (median): 3.24 RMES (median): 5.99 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.39 RMES (mean): 6.07 MAPE (mean): 0.09
+| Test MAE (median): 3.35 RMES (median): 6.15 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 63 out of 100
+Epoch: 741 training cost time: 9.45
+Epoch: 741, Steps: 112 | Train Loss: 0.1304
+Epoch: 742 training cost time: 9.22
+Epoch: 742, Steps: 112 | Train Loss: 0.1362
+Epoch: 743 training cost time: 9.17
+Epoch: 743, Steps: 112 | Train Loss: 0.1280
+Epoch: 744 training cost time: 9.17
+Epoch: 744, Steps: 112 | Train Loss: 0.1399
+Epoch: 745 training cost time: 9.19
+Epoch: 745, eval cost time: 55.31 | Train Loss: 0.13
+| Vali MAE (mean): 3.33 RMES (mean): 5.97 MAPE (mean): 0.08
+| Vali MAE (median): 3.30 RMES (median): 6.05 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.40 RMES (mean): 6.04 MAPE (mean): 0.09
+| Test MAE (median): 3.35 RMES (median): 6.12 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 64 out of 100
+Epoch: 746 training cost time: 9.38
+Epoch: 746, Steps: 112 | Train Loss: 0.1296
+Epoch: 747 training cost time: 9.29
+Epoch: 747, Steps: 112 | Train Loss: 0.1302
+Epoch: 748 training cost time: 10.77
+Epoch: 748, Steps: 112 | Train Loss: 0.1363
+Epoch: 749 training cost time: 9.45
+Epoch: 749, Steps: 112 | Train Loss: 0.1310
+Epoch: 750 training cost time: 9.32
+Epoch: 750, eval cost time: 55.56 | Train Loss: 0.13
+| Vali MAE (mean): 3.29 RMES (mean): 5.90 MAPE (mean): 0.08
+| Vali MAE (median): 3.25 RMES (median): 5.97 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.42 RMES (mean): 6.04 MAPE (mean): 0.09
+| Test MAE (median): 3.37 RMES (median): 6.10 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 65 out of 100
+Epoch: 751 training cost time: 9.45
+Epoch: 751, Steps: 112 | Train Loss: 0.1245
+Epoch: 752 training cost time: 9.28
+Epoch: 752, Steps: 112 | Train Loss: 0.1335
+Epoch: 753 training cost time: 9.25
+Epoch: 753, Steps: 112 | Train Loss: 0.1327
+Epoch: 754 training cost time: 9.35
+Epoch: 754, Steps: 112 | Train Loss: 0.1442
+Epoch: 755 training cost time: 9.29
+Epoch: 755, eval cost time: 55.98 | Train Loss: 0.13
+| Vali MAE (mean): 3.31 RMES (mean): 5.90 MAPE (mean): 0.08
+| Vali MAE (median): 3.25 RMES (median): 5.94 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.47 RMES (mean): 6.08 MAPE (mean): 0.09
+| Test MAE (median): 3.41 RMES (median): 6.15 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+Epoch 00755: reducing learning rate of group 0 to 6.2762e-04.
+EarlyStopping counter: 66 out of 100
+Epoch: 756 training cost time: 9.38
+Epoch: 756, Steps: 112 | Train Loss: 0.1364
+Epoch: 757 training cost time: 9.29
+Epoch: 757, Steps: 112 | Train Loss: 0.1430
+Epoch: 758 training cost time: 9.42
+Epoch: 758, Steps: 112 | Train Loss: 0.1361
+Epoch: 759 training cost time: 9.21
+Epoch: 759, Steps: 112 | Train Loss: 0.1399
+Epoch: 760 training cost time: 9.54
+Epoch: 760, eval cost time: 56.13 | Train Loss: 0.14
+| Vali MAE (mean): 3.28 RMES (mean): 5.93 MAPE (mean): 0.08
+| Vali MAE (median): 3.25 RMES (median): 5.99 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.40 RMES (mean): 6.08 MAPE (mean): 0.09
+| Test MAE (median): 3.37 RMES (median): 6.16 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 67 out of 100
+Epoch: 761 training cost time: 9.68
+Epoch: 761, Steps: 112 | Train Loss: 0.1359
+Epoch: 762 training cost time: 9.24
+Epoch: 762, Steps: 112 | Train Loss: 0.1324
+Epoch: 763 training cost time: 9.23
+Epoch: 763, Steps: 112 | Train Loss: 0.1326
+Epoch: 764 training cost time: 9.53
+Epoch: 764, Steps: 112 | Train Loss: 0.1329
+Epoch: 765 training cost time: 9.31
+Epoch: 765, eval cost time: 55.97 | Train Loss: 0.14
+| Vali MAE (mean): 3.30 RMES (mean): 5.96 MAPE (mean): 0.08
+| Vali MAE (median): 3.28 RMES (median): 6.04 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.38 RMES (mean): 6.03 MAPE (mean): 0.09
+| Test MAE (median): 3.35 RMES (median): 6.12 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 68 out of 100
+Epoch: 766 training cost time: 9.23
+Epoch: 766, Steps: 112 | Train Loss: 0.1323
+Epoch: 767 training cost time: 9.79
+Epoch: 767, Steps: 112 | Train Loss: 0.1366
+Epoch: 768 training cost time: 9.48
+Epoch: 768, Steps: 112 | Train Loss: 0.1261
+Epoch: 769 training cost time: 9.22
+Epoch: 769, Steps: 112 | Train Loss: 0.1384
+Epoch: 770 training cost time: 9.25
+Epoch: 770, eval cost time: 56.57 | Train Loss: 0.13
+| Vali MAE (mean): 3.40 RMES (mean): 6.00 MAPE (mean): 0.08
+| Vali MAE (median): 3.34 RMES (median): 6.07 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.51 RMES (mean): 6.17 MAPE (mean): 0.09
+| Test MAE (median): 3.44 RMES (median): 6.24 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 69 out of 100
+Epoch: 771 training cost time: 9.46
+Epoch: 771, Steps: 112 | Train Loss: 0.1325
+Epoch: 772 training cost time: 9.49
+Epoch: 772, Steps: 112 | Train Loss: 0.1325
+Epoch: 773 training cost time: 11.17
+Epoch: 773, Steps: 112 | Train Loss: 0.1251
+Epoch: 774 training cost time: 10.40
+Epoch: 774, Steps: 112 | Train Loss: 0.1317
+Epoch: 775 training cost time: 9.58
+Epoch: 775, eval cost time: 58.18 | Train Loss: 0.13
+| Vali MAE (mean): 3.31 RMES (mean): 5.98 MAPE (mean): 0.08
+| Vali MAE (median): 3.29 RMES (median): 6.08 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.42 RMES (mean): 6.03 MAPE (mean): 0.09
+| Test MAE (median): 3.37 RMES (median): 6.11 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 70 out of 100
+Epoch: 776 training cost time: 9.52
+Epoch: 776, Steps: 112 | Train Loss: 0.1390
+Epoch: 777 training cost time: 10.44
+Epoch: 777, Steps: 112 | Train Loss: 0.1289
+Epoch: 778 training cost time: 9.60
+Epoch: 778, Steps: 112 | Train Loss: 0.1368
+Epoch: 779 training cost time: 9.79
+Epoch: 779, Steps: 112 | Train Loss: 0.1311
+Epoch: 780 training cost time: 10.50
+Epoch: 780, eval cost time: 57.86 | Train Loss: 0.13
+| Vali MAE (mean): 3.31 RMES (mean): 6.04 MAPE (mean): 0.08
+| Vali MAE (median): 3.28 RMES (median): 6.11 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.38 RMES (mean): 6.01 MAPE (mean): 0.09
+| Test MAE (median): 3.34 RMES (median): 6.10 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 71 out of 100
+Epoch: 781 training cost time: 10.04
+Epoch: 781, Steps: 112 | Train Loss: 0.1322
+Epoch: 782 training cost time: 9.31
+Epoch: 782, Steps: 112 | Train Loss: 0.1256
+Epoch: 783 training cost time: 10.12
+Epoch: 783, Steps: 112 | Train Loss: 0.1426
+Epoch: 784 training cost time: 10.43
+Epoch: 784, Steps: 112 | Train Loss: 0.1319
+Epoch: 785 training cost time: 9.55
+Epoch: 785, eval cost time: 60.51 | Train Loss: 0.13
+| Vali MAE (mean): 3.30 RMES (mean): 5.93 MAPE (mean): 0.08
+| Vali MAE (median): 3.27 RMES (median): 5.99 MAPE (median): 0.08 
+| CRPS (Vali): 0.05
+| Test MAE (mean): 3.40 RMES (mean): 6.02 MAPE (mean): 0.09
+| Test MAE (median): 3.34 RMES (median): 6.08 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 72 out of 100
+Epoch: 786 training cost time: 10.27
+Epoch: 786, Steps: 112 | Train Loss: 0.1258
+Epoch: 787 training cost time: 9.19
+Epoch: 787, Steps: 112 | Train Loss: 0.1388
+Epoch: 788 training cost time: 9.78
+Epoch: 788, Steps: 112 | Train Loss: 0.1278
+Epoch: 789 training cost time: 9.19
+Epoch: 789, Steps: 112 | Train Loss: 0.1303
+Epoch: 790 training cost time: 9.19
+Epoch: 790, eval cost time: 60.18 | Train Loss: 0.14
+| Vali MAE (mean): 3.27 RMES (mean): 5.90 MAPE (mean): 0.08
+| Vali MAE (median): 3.22 RMES (median): 5.95 MAPE (median): 0.08 
+| CRPS (Vali): 0.04
+| Test MAE (mean): 3.46 RMES (mean): 6.13 MAPE (mean): 0.09
+| Test MAE (median): 3.39 RMES (median): 6.20 MAPE (median): 0.09 
+| CRPS (Test): 0.05
+EarlyStopping counter: 73 out of 100
+Epoch 00790: reducing learning rate of group 0 to 6.9736e-04.
+Epoch: 791 training cost time: 9.61
+Epoch: 791, Steps: 112 | Train Loss: 0.1315
+Epoch: 792 training cost time: 9.41
+Epoch: 792, Steps: 112 | Train Loss: 0.1305

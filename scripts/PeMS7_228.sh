@@ -1,6 +1,3 @@
-# beta_start and beta_end and diff_steps are very important for the performance of generation
-# if you found the values from the decoder is exploding, you may need to reduce beta_start and beta_end, or reduce diff_steps, 
-# to eventually reduce the variance of the sampling distribution (diffusion rate)
 export NUMEXPR_MAX_THREADS=128
 export OMP_NUM_THREADS=1
 torchrun --standalone --nproc_per_node=2 main.py\
@@ -34,13 +31,13 @@ torchrun --standalone --nproc_per_node=2 main.py\
     --layers 2 \
     --nheads 4 \
     --diff_emb_dim 32 \
-    --spa_pos_emb_dim 64 \
+    --spa_pos_emb_dim 32 \
     \
     --batch_size 16\
     --es_patience 100\
-    --lr_patience 30\
+    --lr_patience 50\
     --learning_rate 0.002\
-    --train_epochs 600\
+    --train_epochs 800\
     \
     --gpu 0 \
     \
@@ -78,13 +75,13 @@ torchrun --standalone --nproc_per_node=2 main.py\
     --layers 2 \
     --nheads 4 \
     --diff_emb_dim 32 \
-    --spa_pos_emb_dim 64 \
+    --spa_pos_emb_dim 32 \
     \
     --batch_size 16\
     --es_patience 100\
     --lr_patience 30\
     --learning_rate 0.002\
-    --train_epochs 600\
+    --train_epochs 800\
     \
     --gpu 0 \
     \
@@ -123,13 +120,13 @@ torchrun --standalone --nproc_per_node=2 main.py\
     --layers 2 \
     --nheads 4 \
     --diff_emb_dim 32 \
-    --spa_pos_emb_dim 64 \
+    --spa_pos_emb_dim 32 \
     \
     --batch_size 16\
     --es_patience 100\
     --lr_patience 30\
     --learning_rate 0.002\
-    --train_epochs 600\
+    --train_epochs 800\
     \
     --gpu 0 \
     \

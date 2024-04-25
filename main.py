@@ -17,7 +17,6 @@ bash ./scripts/PeMS7_228_wo_tem.sh > $(date +'%y%m%d-%H%M%S')_PeMS7_228_wo_tem_l
 bash ./scripts/PeMS7_228_wo_spa.sh > $(date +'%y%m%d-%H%M%S')_PeMS7_228_wo_spa_log.txt
 """
 
-# random seed will control all random operations in all .py it calls
 fix_seed = 42
 
 def prepare():
@@ -42,7 +41,6 @@ def prepare():
 
     # imputation task
     parser.add_argument('--seq_len', type=int, default=18, help='input sequence length')
-    # scm, structurally column missing, might better fit real-world scenarios
     parser.add_argument('--missing_pattern', type=str, default='rcm', 
                         help='missing pattern, options:[rcm:randomly column missing, scm:structurally column missing]')
     parser.add_argument('--missing_rate', type=float, default=0.3, help='missing rate')
@@ -66,11 +64,11 @@ def prepare():
                         help='time features encoding, options:[timeF, fixed, learned]')
     parser.add_argument('--dropout', type=float, default=0.1, help='dropout')
 
-    parser.add_argument('--channels', type=int, default=64, help='channels of Transformer') # 
-    parser.add_argument('--layers', type=int, default=2, help='layers of Transformer blocks') #
+    parser.add_argument('--channels', type=int, default=64, help='channels of blocks') # 
+    parser.add_argument('--layers', type=int, default=2, help='layers of blocks') #
     parser.add_argument('--nheads', type=int, default=4, help='Numher of Multi-head') #
     parser.add_argument('--diff_emb_dim', type=int, default=32, help='Embbedding dim of the diffusion step') #
-    parser.add_argument('--spa_pos_emb_dim', type=int, default=32, help='Embedding dim for features (different locations)') # attention computation along feature axis
+    parser.add_argument('--spa_pos_emb_dim', type=int, default=32, help='Embedding dim for features (different locations)')
 
     # optimization
     parser.add_argument('--des', type=str, default='Exp', help='exp description')
