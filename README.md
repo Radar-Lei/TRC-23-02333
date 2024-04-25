@@ -24,3 +24,6 @@ We share the data we used and the training logs via Google Drive. The link inclu
 
 ![Validation results in early epochs](figs/early_epoch.png)
 <p align="center">Validation results in early epochs</p>
+
+![Validation results in late epochs](figs/late_epoch.png)
+<p align="center">Validation results in late epochs</p>
