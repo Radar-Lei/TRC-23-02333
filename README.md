@@ -46,3 +46,4 @@ We provide an implementation that leverages multiple GPUs for parallel accelerat
 We share the data we used and the training logs via Google Drive. The link includes our trained models and intermediate results produced during training. By visualizing these intermediate results, you can observe that the performance improves progressively throughout the training process.
 
 ![Validation results in early epochs](figs/early_epoch.png)
+<p align="center">Validation results in early epochs</p>
