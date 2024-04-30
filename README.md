@@ -22,7 +22,7 @@ bash ./scripts/PeMS7_228_wo_spa.sh > $(date +'%y%m%d-%H%M%S')_PeMS7_228_wo_spa_l
 We provide an implementation that leverages multiple GPUs for parallel accelerated training and sample generation in another branch named "multi_GPU". You can switch to that branch if you're equipped with multiple GPUs. It is important to note that to ensure the visual order of the time series of the samples generated during validation and testing is maintained, we only use two GPUs in these phases.
 
 ## Data and Training Logs
-We share the data we used and the training logs via Google Drive. The link includes our trained models and intermediate results produced during training. By visualizing these intermediate results, you can observe that the performance improves progressively throughout the training process.
+We share the data we used and the training logs via [Google Drive](https://drive.google.com/drive/folders/14VPjNlQQRd5FCXXHrBPYbety9fiWx7--?usp=drive_link). The link includes our trained models and intermediate results produced during training. By visualizing these intermediate results, you can observe that the performance improves progressively throughout the training process.
 
 ![Validation results in early epochs](figs/early_epoch.png)
 <p align="center">Validation results in early epochs</p>
