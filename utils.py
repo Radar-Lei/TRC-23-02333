@@ -7,26 +7,86 @@ from pandas.tseries import offsets
 from pandas.tseries.frequencies import to_offset
 
 def MAE(pred, true):
+    """
+    Calculate Mean Absolute Error (MAE).
+    
+    Args:
+        pred: Predicted values
+        true: Ground truth values
+        
+    Returns:
+        float: MAE score
+    """
     return np.mean(np.abs(pred - true))
 
 
 def MSE(pred, true):
+    """
+    Calculate Mean Squared Error (MSE).
+    
+    Args:
+        pred: Predicted values
+        true: Ground truth values
+        
+    Returns:
+        float: MSE score
+    """
     return np.mean((pred - true) ** 2)
 
 
 def RMSE(pred, true):
+    """
+    Calculate Root Mean Squared Error (RMSE).
+    
+    Args:
+        pred: Predicted values
+        true: Ground truth values
+        
+    Returns:
+        float: RMSE score
+    """
     return np.sqrt(MSE(pred, true))
 
 
 def MAPE(pred, true):
+    """
+    Calculate Mean Absolute Percentage Error (MAPE).
+    
+    Args:
+        pred: Predicted values
+        true: Ground truth values
+        
+    Returns:
+        float: MAPE score
+    """
     return np.mean(np.abs((pred - true) / true))
 
 
 def MSPE(pred, true):
+    """
+    Calculate Mean Squared Percentage Error (MSPE).
+    
+    Args:
+        pred: Predicted values
+        true: Ground truth values
+        
+    Returns:
+        float: MSPE score
+    """
     return np.mean(np.square((pred - true) / true))
 
 
 def metric(pred, true):
+    """
+    Calculate all evaluation metrics.
+    
+    Args:
+        pred: Predicted values
+        true: Ground truth values
+        
+    Returns:
+        tuple: (MAE, MSE, RMSE, MAPE, MSPE) scores
+    """
     mae = MAE(pred, true)
     mse = MSE(pred, true)
     rmse = RMSE(pred, true)
@@ -36,7 +96,14 @@ def metric(pred, true):
     return mae, mse, rmse, mape, mspe
 
 def adjust_learning_rate(optimizer, epoch, args):
-    # lr = args.learning_rate * (0.2 ** (epoch // 2))
+    """
+    Adjust learning rate based on different schedules.
+    
+    Args:
+        optimizer: PyTorch optimizer
+        epoch: Current epoch number
+        args: Configuration arguments
+    """
     if args.lradj == 'type1':
         lr_adjust = {epoch: args.learning_rate * (0.7 ** ((epoch - 1) // 1))}
     elif args.lradj == 'type2':
@@ -55,7 +122,12 @@ def adjust_learning_rate(optimizer, epoch, args):
 
 def visual(true, preds=None, name='./pic/test.pdf'):
     """
-    Results visualization
+    Visualize prediction results.
+    
+    Args:
+        true: Ground truth values
+        preds: Predicted values (optional)
+        name: Output file path for the plot
     """
     plt.figure()
     plt.plot(true, label='GroundTruth', linewidth=2, alpha=0.7)
@@ -68,7 +140,19 @@ def visual(true, preds=None, name='./pic/test.pdf'):
     plt.close()
 
 class EarlyStopping:
+    """
+    Early stopping handler to prevent overfitting.
+    """
     def __init__(self, patience=7, verbose=False, model='DiffusionBase', delta=0):
+        """
+        Initialize early stopping handler.
+        
+        Args:
+            patience: Number of epochs to wait before stopping
+            verbose: Whether to print early stopping messages
+            model: Model name for logging
+            delta: Minimum change in monitored value to qualify as an improvement
+        """
         self.patience = patience
         self.verbose = verbose
         self.counter = 0
@@ -79,6 +163,14 @@ class EarlyStopping:
         self.model = model
 
     def __call__(self, val_loss, model, path):
+        """
+        Check if training should be stopped.
+        
+        Args:
+            val_loss: Current validation loss
+            model: PyTorch model
+            path: Path to save the best model
+        """
         score = -val_loss
         if self.best_score is None:
             self.best_score = score
@@ -94,9 +186,16 @@ class EarlyStopping:
             self.counter = 0
 
     def save_checkpoint(self, val_loss, model, path):
+        """
+        Save model checkpoint if validation loss improves.
+        
+        Args:
+            val_loss: Current validation loss
+            model: PyTorch model
+            path: Path to save the model
+        """
         if self.verbose:
             if self.model in ['DiffusionBase', 'CSDI', 'TimeGrad', 'DeepAR']:
-                # for probabilistic models, we use CRPS as the metric
                 print(f'Validation CRPS decreased ({self.val_loss_min:.6f} --> {val_loss:.6f}).  Saving model ...')
             else:
                 print(f'Validation RMSE decreased ({self.val_loss_min:.6f} --> {val_loss:.6f}).  Saving model ...')
@@ -105,6 +204,9 @@ class EarlyStopping:
 
 
 class TimeFeature:
+    """
+    Base class for time feature extraction.
+    """
     def __init__(self):
         pass
 
@@ -115,69 +217,89 @@ class TimeFeature:
         return self.__class__.__name__ + "()"
     
 class SecondOfMinute(TimeFeature):
-    """Minute of hour encoded as value between [-0.5, 0.5]"""
-
+    """
+    Extract second of minute as a feature.
+    Returns value between [-0.5, 0.5].
+    """
     def __call__(self, index: pd.DatetimeIndex) -> np.ndarray:
         return index.second / 59.0 - 0.5
 
 
 class MinuteOfHour(TimeFeature):
-    """Minute of hour encoded as value between [-0.5, 0.5]"""
-
+    """
+    Extract minute of hour as a feature.
+    Returns value between [-0.5, 0.5].
+    """
     def __call__(self, index: pd.DatetimeIndex) -> np.ndarray:
         return index.minute / 59.0 - 0.5
 
 
 class HourOfDay(TimeFeature):
-    """Hour of day encoded as value between [-0.5, 0.5]"""
-
+    """
+    Extract hour of day as a feature.
+    Returns value between [-0.5, 0.5].
+    """
     def __call__(self, index: pd.DatetimeIndex) -> np.ndarray:
         return index.hour / 23.0 - 0.5
 
 
 class DayOfWeek(TimeFeature):
-    """Hour of day encoded as value between [-0.5, 0.5]"""
-
+    """
+    Extract day of week as a feature.
+    Returns value between [-0.5, 0.5].
+    """
     def __call__(self, index: pd.DatetimeIndex) -> np.ndarray:
         return index.dayofweek / 6.0 - 0.5
 
 
 class DayOfMonth(TimeFeature):
-    """Day of month encoded as value between [-0.5, 0.5]"""
-
+    """
+    Extract day of month as a feature.
+    Returns value between [-0.5, 0.5].
+    """
     def __call__(self, index: pd.DatetimeIndex) -> np.ndarray:
         return (index.day - 1) / 30.0 - 0.5
 
 
 class DayOfYear(TimeFeature):
-    """Day of year encoded as value between [-0.5, 0.5]"""
-
+    """
+    Extract day of year as a feature.
+    Returns value between [-0.5, 0.5].
+    """
     def __call__(self, index: pd.DatetimeIndex) -> np.ndarray:
         return (index.dayofyear - 1) / 365.0 - 0.5
 
 
 class MonthOfYear(TimeFeature):
-    """Month of year encoded as value between [-0.5, 0.5]"""
-
+    """
+    Extract month of year as a feature.
+    Returns value between [-0.5, 0.5].
+    """
     def __call__(self, index: pd.DatetimeIndex) -> np.ndarray:
         return (index.month - 1) / 11.0 - 0.5
 
 
 class WeekOfYear(TimeFeature):
-    """Week of year encoded as value between [-0.5, 0.5]"""
-
+    """
+    Extract week of year as a feature.
+    Returns value between [-0.5, 0.5].
+    """
     def __call__(self, index: pd.DatetimeIndex) -> np.ndarray:
         return (index.isocalendar().week - 1) / 52.0 - 0.5
 
 def time_features_from_frequency_str(freq_str: str) -> List[TimeFeature]:
     """
-    Returns a list of time features that will be appropriate for the given frequency string.
-    Parameters
-    ----------
-    freq_str
-        Frequency string of the form [multiple][granularity] such as "12H", "5min", "1D" etc.
+    Get appropriate time features based on frequency string.
+    
+    Args:
+        freq_str: Frequency string (e.g., "12H", "5min", "1D")
+        
+    Returns:
+        List[TimeFeature]: List of time feature extractors
+        
+    Raises:
+        RuntimeError: If frequency string is not supported
     """
-
     features_by_offsets = {
         offsets.YearEnd: [],
         offsets.QuarterEnd: [MonthOfYear],
@@ -225,6 +347,16 @@ def time_features_from_frequency_str(freq_str: str) -> List[TimeFeature]:
     raise RuntimeError(supported_freq_msg)
 
 def time_features(dates, freq='h'):
+    """
+    Extract time features from dates.
+    
+    Args:
+        dates: DatetimeIndex object
+        freq: Frequency string
+        
+    Returns:
+        np.ndarray: Stacked time features
+    """
     fea_ls = []
     for feat in time_features_from_frequency_str(freq):
         fea_ls.append(feat(dates))
@@ -245,7 +377,20 @@ def plot_subplots(
         epoch
         ):
     """
-    plot daily subplots by concatenating subseqs into daily seqsk
+    Plot daily subplots by concatenating subsequences into daily sequences.
+    
+    Args:
+        nrows: Number of rows in subplot
+        ncols: Number of columns in subplot
+        available_cols: Available columns to plot
+        L: Sequence length
+        dataind: Data index
+        quantiles_imp: Imputed quantiles
+        all_target_np: Ground truth values
+        all_evalpoint_np: Evaluation points
+        all_given_np: Given values mask
+        path: Output path
+        epoch: Current epoch
     """
     plt.rcParams["font.size"] = 20
     fig, axes = plt.subplots(nrows=nrows, ncols=ncols,figsize=(24.0, 3.5*nrows))
